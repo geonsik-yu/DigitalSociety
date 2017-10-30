@@ -249,7 +249,7 @@
 	</section>
 
 	<!-- Section: Research Area -->
-	<section id="researchArea" class="services bg-primary text-white" style="margin-top:54%">
+	<section id="researchArea" class="services bg-primary text-white" style="margin-top:50%">
 		<div class="container">
 		<div class="row text-center">
 			<div class="col-lg-10 mx-auto">
