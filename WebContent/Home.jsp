@@ -29,6 +29,12 @@
 			width: 100% !important;
 		}
 
+		#myHornav {
+			border-top-style: solid !important;
+			border-top-width: 1px !important;
+			border-color: #007bff !important;
+		}
+
 		/* Side Navigation Drawer CSS */
 		.sidenav {
 			height: 100%;
@@ -175,15 +181,20 @@
 		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+		
 		<link href="css/stylish-portfolio.css" rel="stylesheet">
 	</head>
 
 	<body style="height: 150px;">
 	<!-- Header -->
 	<header class="header" id="top">
-		<div class="text-vertical-center">
-		<h2>Center of Digital Society</h2>
-		<h5>YONSEI UNIVERSITY</h5>
+		<div style="vertical-align:middle; display:table-cell;">
+			<div style="margin:auto; width: 50%;">
+				<h2 style="font-family:'Oswald';">CENTER for <br/>DIGITAL SOCIETY</h2>
+				<img src="./img/YonseiLogo1.jpg" width="25px" style="margin-right:1px">
+				<img src="./img/YonseiLogo2.jpg" width="150px">
+			</div>
 		</div>
 	</header>
 	
@@ -202,7 +213,7 @@
 	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
 
 	<!-- Navigation: Horizontal -->
-	<nav class="navbar navbar-expand-md navbar-light bg-faded py-md-4">
+	<nav id="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4">
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
@@ -229,7 +240,7 @@
 
 	<!-- Section: Image Slider -->	
 	<section class="imageSlider">
-		<div class="container nopadding" style="width:100%;height:0;margin-bottom:5px">
+		<div class="container nopadding" style="width:100%;height:0;">
 			<div class="row nopadding">
 				<div class="nopadding">
 					<img class="mySlides" src="./img/Sliders1.jpeg">
@@ -387,18 +398,19 @@
 					<li>asdfasdfsad fsdf sfs sdfsfwewer ew rwerwerw </li>
 					<li>ji oj uoidsu fuoisuouo iou ouio uiou oiuouo </li>
 				</ul>
+				<a href="#" class="btn btn-dark" style="float:right">View More</a>
 			</div>
 			<div class="col-md-5 mx-auto">
 				<h2 class="text-center">TREND</h2>
 				<hr class="small">
 				<ul>
-					<li>sadflsjd wejrlk ewkjrlwe jrkljew ljrlkewjlr </li>
+					<li style="border-bottom:dotted; margin-right:30px">sadflsjd wejrlk ewkjrlwe jrkljew ljrlkewjlr </li>
 					<li>sdjfl lk12je3lk12jl3 12kj3l12j3kl sdkljfioa </li>
 					<li>12312kljklsfdjfl sdifjlasjfi i3ou ouoiu iod </li>
 					<li>asdfasdfsad fsdf sfs sdfsfwewer ew rwerwerw </li>
 					<li>ji oj uoidsu fuoisuouo iou ouio uiou oiuouo </li>
 				</ul>
-
+				<a href="#" class="btn btn-dark" style="float:right">View More</a>
 			</div>
 			
 			<!-- /.col-lg-10 -->
