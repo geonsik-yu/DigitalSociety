@@ -3,6 +3,7 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Licenses"/>
         <property name="context-root" value="DigitalSociety"/>
         <property name="java-output-path" value="/DigitalSociety/build/classes"/>
     </wb-module>

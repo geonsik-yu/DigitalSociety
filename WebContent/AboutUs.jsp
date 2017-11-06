@@ -14,13 +14,14 @@
 		/* Minor Deco CSS */	
 		@media (min-width: 767px){
 			#LogoSpace { margin:auto;width: 50%;}
-			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
-			.display-none-small{ display:none !important; }
-			#myHornav { height: 50px !important; }
 		}
 		@media (max-width: 767px){
 			#LogoSpace { margin:auto;width: 80%;}
-			.display-none-big{ display:none !important; }
+		}
+		
+		.aboutUs {
+			padding: 50px 0;
+			background-color:#e9ecef;		
 		}
 		
 		li.nav-item.right-deco {
@@ -36,7 +37,6 @@
 			margin-right: 0 !important;
 			width: 100% !important;
 		}
-
 		#menu-toggle {
 			margin-right: 5px !important;
 			margin-top: 5px !important;
@@ -46,10 +46,16 @@
 			border-top-style: solid !important;
 			border-top-width: 1px !important;
 			border-color: grey !important;			
-			/*
-			border-color: #007bff !important;
-			*/
-		}		
+		}
+		
+		@media (min-width: 767px){
+			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
+			.display-none-small{ display:none !important; }
+		}
+		@media (max-width: 767px){
+			.display-none-big{ display:none !important; }
+		}
+		
 		
 		/* Side Navigation Drawer CSS */
 		.sidenav {
@@ -107,29 +113,34 @@
 			.sidenav a {font-size: 18px;}
 		}	
 		
-		.mySidenav_hr {
+		.mySidenav_hr{
 			margin-top: 2px;
 			margin-bottom: 2px;
 			width: 85%;
 			color: #007bff;
 			background-color: #007bff;
 		}
-	
+
 		/* Image Slider CSS */		
-		@media (max-width: 767px){ /* Slider Folding Condition */
+		@media (max-width: 767px){
 			.mySlides{ display: none !important; }
 			.mybadge{ display: none !important; }
 			.image-top-right{ display: none !important; }
 			#researchArea{ margin-top:0% !important; }
-			.imageSlider-dotContainer { display: none !important; }
-			.imageDot { display: none !important; }
 		}
+
 		.mySlides {
 			position:absolute;
 			display:none;
 			width:100%;
 		}	
-		.image-top-right { /* Slider image description */
+		.mybadge {
+			cursor:pointer;
+			height:10px;
+			width:10px;
+			padding:0
+		}
+		.image-top-right {
 			position: absolute;
 			top: 270px;
 			right: 45px;
@@ -137,32 +148,7 @@
 			font-size: 20pt;
 			z-index: 2;
 		}
-		.dotContainer {	/* Slider image dots */
-			width: 66px; /* (22px)x(3imageSlides) */
-			margin-left: auto !important;
-			margin-right: auto !important;
-			padding-left: 0 !important;
-			padding-right: 0 !important;
-		 	padding-top: 46%;
-		}
-		.imageDot { /* Slider image dots */
-			cursor: pointer;
-			display:inline-block;
-			z-index: 3;
-			width: 16px;
-			height: 16px;
-			margin-left: 3px;
-			margin-right: 3px;
-			-webkit-border-radius: 25px;
-			-moz-border-radius: 25px;
-			border-radius: 50%;
-			border-color: #ffffff;
-			border-width: 1px;
-			border-style: solid;
-		}
-		.imageDot:hover {
-			background-color: white;
-		}
+			
 	</style>
 
 
@@ -188,23 +174,25 @@
 			setInterval(function() {
 				slideIndex += 1;
 				slideIndex = slideIndex%3;
-				showDivs(slideIndex, 2000);				
+				showDivs(slideIndex, 3000);				
 			}, 10000);
 		});
 		
 		function showDivs(n, time) {
 			var i;
 			var x = $(".mySlides");
-			var dots = $(".imageDot");
+			var dots = $(".demo");
 
 			x.eq(n).fadeIn(time);
 			for (i = 0; i < x.length; i++) {
 				if (i != n){ 
 					x.eq(i).fadeOut(time);
-					dots.eq(i).css('background-color', 'transparent')
+					//x.eq(i).css('position','absolute');
+					//dots[i].className = dots[i].className.replace(" w3-white", "");
 				}
 			}
-			dots.eq(n).css('background-color', 'white');
+			//x.eq(n).css('position','relative')
+			//dots[n].className += " w3-white";
 		}
 	</script>
 
@@ -214,15 +202,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rozha One">
-	<link href="css/stylish-portfolio.css" rel="stylesheet">	
+	<link href="css/stylish-portfolio.css" rel="stylesheet">
 </head>
 
-	<body style="height: 150px;">
+
+<body style="height: 150px;">
 	<!-- Header -->
 	<header class="header" id="top">
 		<div style="vertical-align:middle; display:table-cell;">
 			<div id="LogoSpace">
-				<h2 style="font-family:'Oswald';">CENTER for <br/>DIGITAL SOCIETY</h2>
+				<h2 style="font-family:'Oswald';">CENTER for<br/>DIGITAL SOCIETY</h2>
 				<img src="./img/YonseiLogo1.jpg" width="25px" style="margin-right:1px">
 				<img src="./img/YonseiLogo2.jpg" width="150px">
 			</div>
@@ -244,7 +233,7 @@
 	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
 
 	<!-- Navigation: Horizontal -->
-	<nav ID="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey-collapse">
+	<nav class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey">
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
@@ -268,142 +257,42 @@
 		</div>
 	</nav>
 
-
-	<!-- Section: Image Slider -->	
-	<section class="imageSlider border-top-grey">
-		<div class="nopadding" style="width:100%;height:0;">
-			<div class="row nopadding">
-				<div class="nopadding">
-					<img class="mySlides" src="./img/Sliders1.jpeg">
-					<div class="image-top-right">Description WERGAEW ER</div>
-				</div>
-				<div class="nopadding">
-					<img class="mySlides" src="./img/Sliders2.jpeg">
-					<div class="image-top-right">Description WERGAEW ER</div>
-				</div>
-				<div class="nopadding">
-					<img class="mySlides" src="./img/Sliders3.jpeg">
-					<div class="image-top-right">Description WERGAEW ER</div>
-				</div>
-			</div>
-			<div class="dotContainer row">
-				<div class="imageDot" onclick="showDivs(0, 300)"></div>
-				<div class="imageDot" onclick="showDivs(1, 300)"></div>
-				<div class="imageDot" onclick="showDivs(2, 300)"></div>
-			</div>
-		</div>	
-	</section>
-
-	<!-- Section: Research Area -->
-	<section id="researchArea" class="services bg-primary text-white" style="margin-top:50%">
-		<div class="container">
-		<div class="row text-center">
-			<div class="col-lg-10 mx-auto">
-			<h2>OUR RESEARCH AREA</h2>
-			<hr class="medium">
-			<div class="row">
-				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
-					<span class="fa-stack fa-4x">
-					<i class="fa fa-circle fa-stack-2x"></i>
-					<i class="fa fa-cloud fa-stack-1x text-primary"></i>
-					</span>
-					<h4>
-					<strong> ATEWAFA</strong>
-					</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
-					<span class="fa-stack fa-4x">
-					<i class="fa fa-circle fa-stack-2x"></i>
-					<i class="fa fa-compass fa-stack-1x text-primary"></i>
-					</span>
-					<h4>
-					<strong>AFOWIE WERWE</strong>
-					</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
-					<span class="fa-stack fa-4x">
-					<i class="fa fa-circle fa-stack-2x"></i>
-					<i class="fa fa-flask fa-stack-1x text-primary"></i>
-					</span>
-					<h4>
-					<strong>DSFe ASDFWE</strong>
-					</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
-					<span class="fa-stack fa-4x">
-					<i class="fa fa-circle fa-stack-2x"></i>
-					<i class="fa fa-shield fa-stack-1x text-primary"></i>
-					</span>
-					<h4>
-					<strong>WER AWVWE</strong>
-					</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-				</div>
-				</div>
-			</div>
-			<!-- /.row (nested) -->
-			</div>
-			<!-- /.col-lg-10 -->
-		</div>
-		<!-- /.row -->
-		</div>
-		<!-- /.container -->
-	</section>
-
-
-	<!-- Portfolio -->
-	<section id="portfolio" class="portfolio">
+	<!--  -->
+	<section id="aboutUs" class="aboutUs border-top-grey-collapse">
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
-			<h2>LATEST RESEARCH</h2>
-			<hr class="medium">
-			<div class="row">
-				<div class="col-md-6">
-				<div class="portfolio-item">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-1.jpg">
-					</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.</p>
+				<h1 style="font-family:Oswald">ABOUT US</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
+					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
 				</div>
+				
+				<h1 style="font-family:Oswald">WHO WE ARE</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
+					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
 				</div>
-				<div class="col-md-6">
-				<div class="portfolio-item">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-2.jpg">
-					</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit weriouwour weioruower ewr.</p>
+				
+				<h1 style="font-family:Oswald">WHAT WE DO</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
+					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
 				</div>
+				
+				<h1 style="font-family:Oswald">WHAT WE STAND FOR</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
+					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
 				</div>
-				<div class="col-md-6">
-				<div class="portfolio-item">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg">
-					</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit ewruo ewuriow rewuroiau.</p>
+
+				<h1 style="font-family:Oswald">WHERE WE ARE</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:0px; padding-left:18px; padding-right:18px">
+					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
 				</div>
-				</div>
-				<div class="col-md-6">
-				<div class="portfolio-item">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-4.jpg">
-					</a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit weruo awero uwiaurouwe.</p>
-				</div>
-				</div>
-			</div>
+												
 			<!-- /.row (nested) -->
-			<a href="#" class="btn btn-dark">View More</a>
 			</div>
 			<!-- /.col-lg-10 -->
 		</div>
@@ -412,60 +301,7 @@
 		<!-- /.container -->
 	</section>
 
-	<!-- Slogan -->
-	<aside class="callout">
-		<div class="text-vertical-center">
-		<h1>Slogan SLOGAN Slogan SLOGAN</h1>
-		</div>
-	</aside>
 
-	<!-- Notice -->
-	<section id="portfolio" class="portfolio">
-		<div class="container">
-		<div class="row">
-			<div class="col-md-5 mx-auto">
-				<h2 class="text-center">NOTICE</h2>
-				<hr class="small">
-				<ul>
-					<li>sadflsjd wejrlk ewkjrlwe jrkljew ljrlkewjlr </li>
-					<li>sdjfl lk12je3lk12jl3 12kj3l12j3kl sdkljfioa </li>
-					<li>12312kljklsfdjfl sdifjlasjfi i3ou ouoiu iod </li>
-					<li>asdfasdfsad fsdf sfs sdfsfwewer ew rwerwerw </li>
-					<li>ji oj uoidsu fuoisuouo iou ouio uiou oiuouo </li>
-				</ul>
-				<a href="#" class="btn btn-dark" style="float:right">View More</a>
-			</div>
-			<div class="col-md-5 mx-auto">
-				<h2 class="text-center">TREND</h2>
-				<hr class="small">
-				<ul>
-					<li style="border-bottom:dotted; margin-right:30px">sadflsjd wejrlk ewkjrlwe jrkljew ljrlkewjlr </li>
-					<li>sdjfl lk12je3lk12jl3 12kj3l12j3kl sdkljfioa </li>
-					<li>12312kljklsfdjfl sdifjlasjfi i3ou ouoiu iod </li>
-					<li>asdfasdfsad fsdf sfs sdfsfwewer ew rwerwerw </li>
-					<li>ji oj uoidsu fuoisuouo iou ouio uiou oiuouo </li>
-				</ul>
-				<a href="#" class="btn btn-dark" style="float:right">View More</a>
-			</div>
-			
-			<!-- /.col-lg-10 -->
-		</div>
-		<!-- /.row -->
-		</div>
-		<!-- /.container -->
-	</section>
-
-	<!-- Call to Action -->
-	<aside class="call-to-action bg-primary text-white">
-		<div class="container" style="text-align:justify">
-			<h4 class="display-none-big">
-				We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
-			</h4>
-			<h5 class="display-none-small">
-				We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
-			</h5>
-		</div>
-	</aside>
 
 	<!-- Map -->
 	<section id="contactMap" class="map" style="display:block;">
@@ -475,6 +311,25 @@
 		<a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=연세대학교,+첨단관&amp;aq=0&amp;oq=&amp;sll=37.5627406,126.931192&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=&amp;t=m&amp;z=15&amp;iwloc=A"></a>
 		</small>
 	</section>
+
+	<!-- Slogan -->
+	<aside class="callout">
+		<div class="text-vertical-center">
+		<h1>Slogan SLOGAN Slogan SLOGAN</h1>
+		</div>
+	</aside>
+
+	<!-- Call to Action -->
+	<aside class="call-to-action bg-primary text-white">
+		<div class="container" style="text-align:justify">
+			<h3 class="display-none-big">
+				We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
+			</h3>
+			<h5 class="display-none-small">
+				We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
+			</h5>
+		</div>
+	</aside>
 
 	<!-- Footer -->
 	<footer>

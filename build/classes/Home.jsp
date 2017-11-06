@@ -1,11 +1,8 @@
-<%@ page language="java" 
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-
+<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
@@ -15,6 +12,17 @@
 
 	<style>
 		/* Minor Deco CSS */	
+		@media (min-width: 767px){
+			#LogoSpace { margin:auto;width: 50%;}
+			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
+			.display-none-small{ display:none !important; }
+			#myHornav { height: 50px !important; }
+		}
+		@media (max-width: 767px){
+			#LogoSpace { margin:auto;width: 80%;}
+			.display-none-big{ display:none !important; }
+		}
+		
 		li.nav-item.right-deco {
 			border-color: black ;
 			border-right-style:dotted ;
@@ -29,12 +37,20 @@
 			width: 100% !important;
 		}
 
-		#myHornav {
-			border-top-style: solid !important;
-			border-top-width: 1px !important;
-			border-color: #007bff !important;
+		#menu-toggle {
+			margin-right: 5px !important;
+			margin-top: 5px !important;
 		}
 
+		.border-top-grey {
+			border-top-style: solid !important;
+			border-top-width: 1px !important;
+			border-color: grey !important;			
+			/*
+			border-color: #007bff !important;
+			*/
+		}		
+		
 		/* Side Navigation Drawer CSS */
 		.sidenav {
 			height: 100%;
@@ -91,34 +107,29 @@
 			.sidenav a {font-size: 18px;}
 		}	
 		
-		.mySidenav_hr{
+		.mySidenav_hr {
 			margin-top: 2px;
 			margin-bottom: 2px;
 			width: 85%;
 			color: #007bff;
 			background-color: #007bff;
 		}
-
+	
 		/* Image Slider CSS */		
-		@media (max-width: 767px){
+		@media (max-width: 767px){ /* Slider Folding Condition */
 			.mySlides{ display: none !important; }
 			.mybadge{ display: none !important; }
 			.image-top-right{ display: none !important; }
 			#researchArea{ margin-top:0% !important; }
+			.imageSlider-dotContainer { display: none !important; }
+			.imageDot { display: none !important; }
 		}
-
 		.mySlides {
 			position:absolute;
 			display:none;
 			width:100%;
 		}	
-		.mybadge {
-			cursor:pointer;
-			height:10px;
-			width:10px;
-			padding:0
-		}
-		.image-top-right {
+		.image-top-right { /* Slider image description */
 			position: absolute;
 			top: 270px;
 			right: 45px;
@@ -126,17 +137,40 @@
 			font-size: 20pt;
 			z-index: 2;
 		}
-			
+		.dotContainer {	/* Slider image dots */
+			width: 66px; /* (22px)x(3imageSlides) */
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		 	padding-top: 46%;
+		}
+		.imageDot { /* Slider image dots */
+			cursor: pointer;
+			display:inline-block;
+			z-index: 3;
+			width: 16px;
+			height: 16px;
+			margin-left: 3px;
+			margin-right: 3px;
+			-webkit-border-radius: 25px;
+			-moz-border-radius: 25px;
+			border-radius: 50%;
+			border-color: #ffffff;
+			border-width: 1px;
+			border-style: solid;
+		}
+		.imageDot:hover {
+			background-color: white;
+		}
 	</style>
 
 
-	<!-- Bootstrap core JavaScript -->
+	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
-
-
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "250px";
@@ -154,43 +188,40 @@
 			setInterval(function() {
 				slideIndex += 1;
 				slideIndex = slideIndex%3;
-				showDivs(slideIndex, 3000);				
+				showDivs(slideIndex, 2000);				
 			}, 10000);
 		});
 		
 		function showDivs(n, time) {
 			var i;
 			var x = $(".mySlides");
-			var dots = $(".demo");
+			var dots = $(".imageDot");
 
 			x.eq(n).fadeIn(time);
 			for (i = 0; i < x.length; i++) {
 				if (i != n){ 
 					x.eq(i).fadeOut(time);
-					//x.eq(i).css('position','absolute');
-					//dots[i].className = dots[i].className.replace(" w3-white", "");
+					dots.eq(i).css('background-color', 'transparent')
 				}
 			}
-			//x.eq(n).css('position','relative')
-			//dots[n].className += " w3-white";
+			dots.eq(n).css('background-color', 'white');
 		}
-
 	</script>
 
-		<!-- Bootstrap Frame CSS -->
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
-		
-		<link href="css/stylish-portfolio.css" rel="stylesheet">
-	</head>
+	<!-- Bootstrap Frame CSS and Other Styles -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rozha One">
+	<link href="css/stylish-portfolio.css" rel="stylesheet">	
+</head>
 
 	<body style="height: 150px;">
 	<!-- Header -->
 	<header class="header" id="top">
 		<div style="vertical-align:middle; display:table-cell;">
-			<div style="margin:auto; width: 50%;">
+			<div id="LogoSpace">
 				<h2 style="font-family:'Oswald';">CENTER for <br/>DIGITAL SOCIETY</h2>
 				<img src="./img/YonseiLogo1.jpg" width="25px" style="margin-right:1px">
 				<img src="./img/YonseiLogo2.jpg" width="150px">
@@ -213,7 +244,7 @@
 	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
 
 	<!-- Navigation: Horizontal -->
-	<nav id="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4">
+	<nav ID="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey-collapse">
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
@@ -239,8 +270,8 @@
 
 
 	<!-- Section: Image Slider -->	
-	<section class="imageSlider">
-		<div class="container nopadding" style="width:100%;height:0;">
+	<section class="imageSlider border-top-grey">
+		<div class="nopadding" style="width:100%;height:0;">
 			<div class="row nopadding">
 				<div class="nopadding">
 					<img class="mySlides" src="./img/Sliders1.jpeg">
@@ -255,7 +286,11 @@
 					<div class="image-top-right">Description WERGAEW ER</div>
 				</div>
 			</div>
-			
+			<div class="dotContainer row">
+				<div class="imageDot" onclick="showDivs(0, 300)"></div>
+				<div class="imageDot" onclick="showDivs(1, 300)"></div>
+				<div class="imageDot" onclick="showDivs(2, 300)"></div>
+			</div>
 		</div>	
 	</section>
 
@@ -422,10 +457,13 @@
 
 	<!-- Call to Action -->
 	<aside class="call-to-action bg-primary text-white">
-		<div class="container text-center">
-		<h3>The buttons below are impossible to resist.</h3>
-		<a href="#" class="btn btn-lg btn-light">Click Me!</a>
-		<a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+		<div class="container" style="text-align:justify">
+			<h4 class="display-none-big">
+				We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
+			</h4>
+			<h5 class="display-none-small">
+				We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
+			</h5>
 		</div>
 	</aside>
 
@@ -476,7 +514,7 @@
 				</li>
 			</ul>
 			<hr class="small">
-			<p class="text-muted">Copyright &copy; Your Website 2017</p>
+			<p class="text-muted">Copyright &copy; Center for Digital Society, Yonsei School of Business 2017</p>
 			</div>
 		</div>
 		</div>
