@@ -14,10 +14,14 @@
 		/* Minor Deco CSS */	
 		@media (min-width: 767px){
 			#LogoSpace { margin:auto;width: 50%;}
+			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
+			.display-none-small{ display:none !important; }
+			#myHornav { height: 50px !important; }
 		}
 		@media (max-width: 767px){
 			#LogoSpace { margin:auto;width: 80%;}
-		}
+			.display-none-big{ display:none !important; }
+		}		
 		
 		.experts {
 			padding: 50px 0;
@@ -47,15 +51,6 @@
 			border-top-width: 1px !important;
 			border-color: grey !important;			
 		}
-		
-		@media (min-width: 767px){
-			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
-			.display-none-small{ display:none !important; }
-		}
-		@media (max-width: 767px){
-			.display-none-big{ display:none !important; }
-		}
-		
 		
 		/* Side Navigation Drawer CSS */
 		.sidenav {
@@ -233,7 +228,7 @@
 	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
 
 	<!-- Navigation: Horizontal -->
-	<nav class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey">
+	<nav ID="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey-collapse">	
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">

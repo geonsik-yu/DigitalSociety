@@ -173,7 +173,7 @@
 	<script src="js/stylish-portfolio.js"></script>
 	<script>
 		function openNav() {
-			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("mySidenav").style.width = "220px";
 			document.getElementById("mySidenav_greyover").style.width = "100%";
 		}
 	
@@ -371,6 +371,7 @@
 			<div class="row">
 				<div class="col-md-6">
 				<div class="portfolio-item">
+					<h5>TITLE dsfa sdaf zvzcsdf TITLE</h5>
 					<a href="#">
 					<img class="img-portfolio img-fluid" src="img/portfolio-1.jpg">
 					</a>
@@ -379,6 +380,7 @@
 				</div>
 				<div class="col-md-6">
 				<div class="portfolio-item">
+					<h5>TITLE sdfsdf sdfds rewrwe TITLE</h5>				
 					<a href="#">
 					<img class="img-portfolio img-fluid" src="img/portfolio-2.jpg">
 					</a>
@@ -387,6 +389,7 @@
 				</div>
 				<div class="col-md-6">
 				<div class="portfolio-item">
+					<h5>TITLE Tdasf sdfsdf dfsfdsf TITLE</h5>
 					<a href="#">
 					<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg">
 					</a>
@@ -395,6 +398,7 @@
 				</div>
 				<div class="col-md-6">
 				<div class="portfolio-item">
+					<h5>TITLE afdsa dsaf assdf TITLE</h5>
 					<a href="#">
 					<img class="img-portfolio img-fluid" src="img/portfolio-4.jpg">
 					</a>
@@ -484,8 +488,10 @@
 			<h4>
 				<strong>Yonset Center of Digital Society</strong>
 			</h4>
-			<p>3481 blahblah address !@@! Place
-				<br>adress yonsei blah Hills, asdfC A90210</p>
+			<p> 
+				Advanced Science & Technology Center 102, 50 Yonsei-ro Seodaemun-gu
+				<br/>Seoul, 03722, Republic of Korea
+			</p>
 			<ul class="list-unstyled">
 				<li>
 				<i class="fa fa-phone fa-fw"></i>

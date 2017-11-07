@@ -14,10 +14,14 @@
 		/* Minor Deco CSS */	
 		@media (min-width: 767px){
 			#LogoSpace { margin:auto;width: 50%;}
+			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
+			.display-none-small{ display:none !important; }
+			#myHornav { height: 50px !important; }
 		}
 		@media (max-width: 767px){
 			#LogoSpace { margin:auto;width: 80%;}
-		}
+			.display-none-big{ display:none !important; }
+		}		
 		
 		.aboutUs {
 			padding: 50px 0;
@@ -47,15 +51,6 @@
 			border-top-width: 1px !important;
 			border-color: grey !important;			
 		}
-		
-		@media (min-width: 767px){
-			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
-			.display-none-small{ display:none !important; }
-		}
-		@media (max-width: 767px){
-			.display-none-big{ display:none !important; }
-		}
-		
 		
 		/* Side Navigation Drawer CSS */
 		.sidenav {
@@ -233,7 +228,7 @@
 	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
 
 	<!-- Navigation: Horizontal -->
-	<nav class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey">
+	<nav ID="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey-collapse">	
 		<div class="container">
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
@@ -264,32 +259,26 @@
 			<div class="col-lg-10 mx-auto text-center">
 				<h1 style="font-family:Oswald">ABOUT US</h1>
 				<hr class="medium">
-				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
+				
+				<h3 style="font-family:Oswald; text-align:left">WHO WE ARE</h3>
+				<div class="row" style="margin-bottom:30px; padding-left:18px; padding-right:18px">
+					<p style="text-align:justify">
+						The contemporary society makes a rapid advance toward hyper-connected society due to the diffusion of social network technology such as Internet, mobile devices, social media. At the small-scale level of this project, two independent research teams were formed and conducted separate research on connectivity between corporate and consumer and governance-citizenship network in new media society. At the middle-scale level, on the other hand, the two teams collaborated and proposed more sophisticated conceptualization and prediction of the future of hyper-connected society. Furthermore, such a collaboration attempted systemic observation of convergence between market economy and civic society, and suggested better policy alternatives to prepare the upcoming hyper-connected society.
+						<br/><br/>The contemporary society has been evolving into hyper-connected and hyper-intellectual society along with the progress of the fourth industrial revolution. The fourth industrial revolution is defined as cyber-physical system to dramatically develop the potential of human and machines (World Economic Forum, 2016). In other words, through fourth industrial revolution, we will be able to see the era when technologies are embedded into the society in which machines carry out intellectual operations, computing technologies are applied directly into human bodies, and communication among corporate, government, and consumers are heading toward new dimension (Davis, World Economic Forum, 2016).  
+						<br/><br/>The research teams have comprehensively analyzed the various aspects of the connectivity of market economy and civic society. Based on such achievement, the research project at large-scale level focuses on the pattern of network and interaction between corporate groups and individuals as both citizen and user to experience institutional ecosystem in hyper connected-intellectual society because in hyper-connected and hyper-intellectual society, the trend that an individual multifacetedly acts as a citizen, a consumer, and a user is strengthened. At large-scale level, such multidimensional aspects of an individual in hyper-connected society is taken into comprehensive consideration. Consequently, in the first phase of the large-scale level, the interaction between citizen· user communities will be analyzed. In the second phase, based on the analysis of user involvement platforms, citizen communication platforms, and social trust governance which link one citizen· user community to others, policy alternatives and institutional improvements will be suggested.
+					</p>
+				</div>
+				
+				<h3 style="font-family:Oswald; text-align:left">WHAT WE DO</h3>
+				<div class="row" style="margin-bottom:30px; padding-left:18px; padding-right:18px">
 					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
 				</div>
 				
-				<h1 style="font-family:Oswald">WHO WE ARE</h1>
-				<hr class="medium">
-				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
-					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
-				</div>
-				
-				<h1 style="font-family:Oswald">WHAT WE DO</h1>
-				<hr class="medium">
-				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
-					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
-				</div>
-				
-				<h1 style="font-family:Oswald">WHAT WE STAND FOR</h1>
-				<hr class="medium">
-				<div class="row" style="margin-bottom:100px; padding-left:18px; padding-right:18px">
-					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
-				</div>
-
-				<h1 style="font-family:Oswald">WHERE WE ARE</h1>
-				<hr class="medium">
+				<h3 style="font-family:Oswald; text-align:left">WHERE WE ARE</h3>
 				<div class="row" style="margin-bottom:0px; padding-left:18px; padding-right:18px">
-					sdafasdfasfasdf dsaf safasdfasfasfasdfasfasdfsadfasdfaffas
+					<p style="text-align:left"> 
+						Advanced Science & Technology Center 102, 50 Yonsei-ro Seodaemun-gu, Seoul, 03722, Republic of Korea
+					</p>
 				</div>
 												
 			<!-- /.row (nested) -->
@@ -339,8 +328,10 @@
 			<h4>
 				<strong>Yonset Center of Digital Society</strong>
 			</h4>
-			<p>3481 blahblah address !@@! Place
-				<br>adress yonsei blah Hills, asdfC A90210</p>
+			<p> 
+				Advanced Science & Technology Center 102, 50 Yonsei-ro Seodaemun-gu
+				<br/>Seoul, 03722, Republic of Korea
+			</p>
 			<ul class="list-unstyled">
 				<li>
 				<i class="fa fa-phone fa-fw"></i>
