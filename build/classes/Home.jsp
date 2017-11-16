@@ -17,6 +17,7 @@
 			.border-top-grey-collapse { border-top-style: solid !important; border-top-width: 1px !important; border-color: grey !important;}
 			.display-none-small{ display:none !important; }
 			#myHornav { height: 50px !important; }
+			#to-top { }
 		}
 		@media (max-width: 767px){
 			#LogoSpace { margin:auto;width: 80%;}
@@ -163,6 +164,9 @@
 		.imageDot:hover {
 			background-color: white;
 		}
+		#ritem:hover {
+		
+		}
 	</style>
 
 
@@ -222,9 +226,9 @@
 	<header class="header" id="top">
 		<div style="vertical-align:middle; display:table-cell;">
 			<div id="LogoSpace">
-				<h2 style="font-family:'Oswald';">CENTER for <br/>DIGITAL SOCIETY</h2>
-				<img src="./img/YonseiLogo1.jpg" width="25px" style="margin-right:1px">
-				<img src="./img/YonseiLogo2.jpg" width="150px">
+				<h3 style="font-family:'Oswald';">CENTER FOR <br/>DIGITAL SOCIETY</h3>
+				<img src="./img/YonseiLogo1.jpg" width="30px" style="margin-right:1px">
+				<img src="./img/YonseiLogo2.jpg" width="180px">
 			</div>
 		</div>
 	</header>
@@ -234,8 +238,9 @@
 		<i class="fa fa-bars"></i>
 	</a>
 	<div id="mySidenav" class="sidenav">
-		<a href="#">About Us</a>
+		<h5 style="font-family:'Oswald';margin-left:20px">CENTER for <br/>DIGITAL SOCIETY</h5>
 		<hr class="mySidenav_hr" style="margin-top:2px; margin-bottom:2px; width:85%">	
+		<a href="#">About Us</a>
 		<a href="#">Experts</a>
 		<a href="#">Research</a>
 		<a href="#">Trend</a>
@@ -303,7 +308,7 @@
 			<hr class="medium">
 			<div class="row">
 				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
+				<div id="ritem" class="service-item">
 					<span class="fa-stack fa-4x">
 					<i class="fa fa-circle fa-stack-2x"></i>
 					<i class="fa fa-cloud fa-stack-1x text-primary"></i>
@@ -315,7 +320,7 @@
 				</div>
 				</div>
 				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
+				<div id="ritem" class="service-item">
 					<span class="fa-stack fa-4x">
 					<i class="fa fa-circle fa-stack-2x"></i>
 					<i class="fa fa-compass fa-stack-1x text-primary"></i>
@@ -327,7 +332,7 @@
 				</div>
 				</div>
 				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
+				<div id="ritem" class="service-item">
 					<span class="fa-stack fa-4x">
 					<i class="fa fa-circle fa-stack-2x"></i>
 					<i class="fa fa-flask fa-stack-1x text-primary"></i>
@@ -339,7 +344,7 @@
 				</div>
 				</div>
 				<div class="col-md-3 col-sm-6">
-				<div class="service-item">
+				<div id="ritem" class="service-item">
 					<span class="fa-stack fa-4x">
 					<i class="fa fa-circle fa-stack-2x"></i>
 					<i class="fa fa-shield fa-stack-1x text-primary"></i>

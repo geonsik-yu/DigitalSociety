@@ -100,7 +100,9 @@
 			</div>			
 			<div class="col-xs-4" style="background-color:#FEFEFE;border:1px solid #4479D4;margin:0px 6px;width:230px;">
 				<jsp:useBean class="java.util.ArrayList" id="paperList" scope="request"/>
-
+				<%
+					String xx = "asdfa";
+				%>
 				<a style="float:right;" href="./MainControlServlet?action=ResearchList&type=0">자세히</a>
 			</div>
 			<div class="col-xs-4" style="background-color:#FEFEFE;border:1px solid #1049A9;margin-left:6px;width:230px;">
