@@ -1,0 +1,19 @@
+{
+  "name": "digitalsociety",
+  "version": "1.0.0",
+  "description": "Website - Center for Digital Society at Yonsei Univ ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Geonsik Yu",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "jade": "^1.11.0",
+    "templatejs": "^1.0.0"
+  }
+}
