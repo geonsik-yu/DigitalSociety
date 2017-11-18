@@ -38,129 +38,39 @@
 				<h1 style="font-family:Oswald">PROFESSIONALS</h1>
 				<hr class="medium">
 				<div class="row" style="margin-bottom:50px">
+					<% 
+					for(i = 0; i < ExpertData.length; i++) { 
+						if(ExpertData[i].ExpertGroup == "Professional"){
+						%>
 					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
 						<div style="word-wrap: break-word">
 							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
+							<h4> <%=ExpertData[i].ExpertName%> </h4>
 							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
+								<%=ExpertData[i].Description%>
 							</p>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
+					<% }} %>
 				</div>
 
 				<h1 style="font-family:Oswald">RESEARCHERS</h1>
 				<hr class="medium">
 				<div class="row" style="margin-bottom:50px">
+					<% 
+					for(i = 0; i < ExpertData.length; i++) { 
+						if(ExpertData[i].ExpertGroup == "Researcher"){
+						%>
 					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
 						<div style="word-wrap: break-word">
 							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
+							<h4> <%=ExpertData[i].ExpertName%> </h4>
 							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
+								<%=ExpertData[i].Description%>
 							</p>
 						</div>
 					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
-						<div style="word-wrap: break-word">
-							<img style="width:120px;height:120px;float:left"/>
-							<h4> Name Name </h4>
-							<p style="margin-left:135px;">
-								sadfasdfasdfasdfasdfafadfsfadfadfaasdfad
-							</p>
-						</div>
-					</div>
-
+					<% }} %>
 				</div>
 
 			<!-- /.row (nested) -->
@@ -174,11 +84,7 @@
 
 
 	<!-- Slogan -->
-	<aside class="callout">
-		<div class="text-vertical-center">
-		<h1>Slogan SLOGAN Slogan SLOGAN</h1>
-		</div>
-	</aside>
+    <% include ./shared/Slogan %>
 
 	<!-- Call to Action -->
 	<aside class="call-to-action">
@@ -214,7 +120,6 @@
 			document.getElementById("mySidenav_greyover").style.width = "0";
 		}		
 	</script>
-
 	
 	</body>
 
