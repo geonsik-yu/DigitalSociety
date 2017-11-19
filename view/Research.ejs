@@ -9,13 +9,12 @@
 
 	<title>Center of Digital Society - TEST</title>
 
-
 	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
-
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
 
 	<!-- Bootstrap Frame CSS and Other Styles -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" >
@@ -29,68 +28,59 @@
 
 
 <body style="height: 150px;">
-
-	<!-- ejs Header -->
     <% include ./shared/Header %>
-
-	<!--  -->
 	<section id="experts" class="experts border-top-grey-collapse">
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
 				<h1 style="font-family:Oswald">RESEARCH</h1>
 				<hr class="medium">
-				<div class="row" style="margin-bottom:100px">
-
-					<% for(i = 0; i < ResearchData.length; i++) { %>
-					<div class="col-md-4 col-sm-12">
-						<a href="#">
-						<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
-						</a>
-					</div>
-					<div class="col-md-8 col-sm-12">
-						<div class="researchItem"><%=ResearchData[i].ResearchTitle%></div>
-						<hr class="researchHr"/>
-						<p style="text-align:justify;overflow:hidden">
-							<%= ResearchData[i].Description %>
-							<a id="myBtn" class="btn btn-dark text-white" style="float:right;">View More</a>						
-						</p>
-					</div>
-
-					<!-- Modal Part -->
-					<div id="myModal" class="modal">
-						<div class="modal-content">	
-							<div style="width:50%;margin:auto;">
-								<a href="#">
-								<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
-								</a>
-							</div>
-							<div style="width:100%">
-								<div class="researchItem"><%=ResearchData[i].ResearchTitle%></div>
-								<hr class="researchHr"/>
-								<p style="text-align:justify;">
-									<%= ResearchData[i].Description %>
-								</p>
-							</div>
-							<span class="modal-close">&times;</span>
-						</div>
-					</div>
-					<% } %>
-
-				</div>	
-			<!-- /.row (nested) -->
+				<div id="listBody" class="row" style="margin-bottom:100px"></div>	
+				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>				
 			</div>
-			<!-- /.col-lg-10 -->
 		</div>
-		<!-- /.row -->
 		</div>
-		<!-- /.container -->
 	</section>
-
     <% include ./shared/Slogan %>
-	<!-- ejs Footer -->
     <% include ./shared/Footer %>
-	
+
+	<script id="ajaxTempl" type="text/x-jquery-tmpl">
+		<div class="col-md-4 col-sm-12">
+			<a href="#">
+				<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; 	padding-top:16px;">
+			</a>
+		</div>
+		<div class="col-md-8 col-sm-12">
+			<div class="researchItem"> ${ResearchTitle} </div>
+			<hr class="researchHr"/>
+			<p style="text-align:justify;overflow:hidden">
+				${Description}
+				<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:right;" href="javascript:void(0);" onclick="openModal(this)">
+					View More
+				</a>		
+			</p>
+		</div>
+		<div id="modal_${ResearchId}" class="modal">
+			<div class="modal-content">	
+				<div style="width:50%;margin:auto;">
+					<a href="#">
+					<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
+					</a>
+				</div>
+				<div style="width:100%">
+					<div class="researchItem"> ${ResearchTitle} </div>
+					<hr class="researchHr"/>
+					<p style="text-align:justify;">
+						${Description}
+					</p>
+				</div>
+				<a id="${ResearchId}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
+					Close
+				</a>
+			</div>
+		</div>
+	</script>
+
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "220px";
@@ -100,22 +90,40 @@
 			document.getElementById("mySidenav").style.width = "0";
 			document.getElementById("mySidenav_greyover").style.width = "0";
 		}
-		
+
 		// JS for modal
-		var modal = document.getElementById('myModal');
-		var btn = document.getElementById("myBtn");
-		var span = document.getElementsByClassName("modal-close")[0];
-		btn.onclick = function() {
-		    modal.style.display = "block";
+		function openModal(obj){
+			id = $(obj).attr('id');
+			modal = document.getElementById("modal_"+id);
+			modal.style.display = "block";	
 		}
-		span.onclick = function() {
-		    modal.style.display = "none";
+		function closeModal(obj){
+			id = $(obj).attr('id');
+			modal = document.getElementById("modal_"+id);
+			modal.style.display = "none";	
 		}
-		window.onclick = function(event) {
-		    if (event.target == modal) {
-		        modal.style.display = "none";
-		    }
-		}
+
+		// Ajax function.
+		var currentIndex = 0;
+		document.querySelector('#loadMore').addEventListener('click', function(){
+			var data = {'current' : currentIndex};
+			jdata = JSON.stringify(data);
+			console.log(jdata);
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'http://localhost:3000/Ajax_Research');
+			xhr.setRequestHeader('Content-type', "application/json");
+			xhr.send(jdata);
+			// 데이터 수신이 완료되면 표시
+			xhr.addEventListener('load', function(){
+				var result = JSON.parse(xhr.responseText);
+				currentIndex += 6;
+				console.log(currentIndex);
+				for(i=0; i<result.length; i++){
+			        var obj = $("#ajaxTempl").tmpl(result[i]).appendTo("#listBody");	
+				}
+			});
+		});
+		document.getElementById('loadMore').click();
 	</script>
 	</body>
 

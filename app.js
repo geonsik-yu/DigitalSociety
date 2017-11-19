@@ -5,20 +5,16 @@
 var express = require('express');
 var app = express();
 var mysql = require('mysql');
-var passport = require('passport');
 var session = require('express-session');
+var bodyParser = require('body-parser')
 
-// Login Session
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true
-}));
-
-
+// use body parser for json
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
 
 // use ./public directory for css, js, img, and libraries.
 app.use(express.static(__dirname + '/public'));
+
 // use ejs engine.
 app.set('view engine', 'ejs');
 // use ./view directory for ejs files and map it as 'views'
@@ -53,16 +49,23 @@ app.get('/Experts', function(req, res){
 		}
 	);	
 })
+
 app.get('/Research', function(req, res){
+	res.render('Research');
+})
+app.post('/Ajax_Research', function(req, res){
+	current = req.body.current;
 	con.query(
-		"SELECT * FROM Research", 
+		"SELECT * FROM Research ORDER BY ResearchId DESC LIMIT 6 OFFSET " + current, 
 		function (err, result, fields) {
 			if (err) throw err;
 			console.log("Query Successful.");
-			res.render('Research', { 'ResearchData' : result });
+			res.json(result);
 		}
 	);	
 })
+
+
 app.get('/Trends', function(req, res){
 	con.query(
 		"SELECT * FROM Articles", 
