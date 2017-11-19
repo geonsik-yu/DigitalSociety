@@ -8,6 +8,9 @@
 				<img src="./img/YonseiLogo1.jpg" width="30px" style="margin-right:1px">
 				<img src="./img/YonseiLogo2.jpg" width="180px">
 			</div>
+			<% if(session.manager_uid){ %>
+			<a href='/logout' style="float:right;"> Logout </a>
+			<% }%>
 		</div>
 	</header>
 	

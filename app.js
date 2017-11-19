@@ -11,6 +11,22 @@ var bodyParser = require('body-parser')
 // use body parser for json
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+// use session for login
+app.use(session({
+    secret: 'amv#!&*!DNdfAsv#!$()_*#*!#EA#!@!vsmkv#_*#@',
+    resave: false,
+    saveUninitialized: true,
+	cookie: { maxAge: 1000 * 60 * 60 }
+}));
+const managers = [{ manager_id: 'manager_1234', manager_pwd: '1234'}]
+const findManager = (manager_id, manager_pwd) => {
+    return managers.find( v => (v.manager_id === manager_id && v.manager_pwd === manager_pwd) );
+}
+app.use(function(req, res, next) {
+	res.locals.manager = req.session.manager;
+	next();
+});
+
 
 // use ./public directory for css, js, img, and libraries.
 app.use(express.static(__dirname + '/public'));
@@ -34,10 +50,12 @@ con.connect(function(err) {
 
 // URL Mapping.
 app.get('/', function(req, res){
-	res.render('Home');
+	//const sess = req.session;
+	//res.render('Home');
+    res.render('Home', { session: req.session });
 })
 app.get('/AboutUs', function(req, res){
-	res.render('AboutUs');
+	res.render('AboutUs', { session: req.session });
 })
 app.get('/Experts', function(req, res){
 	con.query(
@@ -45,13 +63,13 @@ app.get('/Experts', function(req, res){
 		function (err, result, fields) {
 			if (err) throw err;
 			console.log("Query Successful.");
-			res.render('Experts', { 'ExpertData' : result });
+			res.render('Experts', { 'ExpertData' : result, session: req.session });
 		}
 	);	
 })
 
 app.get('/Research', function(req, res){
-	res.render('Research');
+	res.render('Research', { session: req.session });
 })
 app.post('/Ajax_Research', function(req, res){
 	current = req.body.current;
@@ -65,25 +83,45 @@ app.post('/Ajax_Research', function(req, res){
 	);	
 })
 
-
 app.get('/Trends', function(req, res){
+	res.render('Trends', { session: req.session });
+})
+app.post('/Ajax_Trends', function(req, res){
+	current = req.body.current;
 	con.query(
-		"SELECT * FROM Articles", 
+		"SELECT * FROM Articles ORDER BY ArticleId DESC LIMIT 6 OFFSET " + current, 
 		function (err, result, fields) {
 			if (err) throw err;
 			console.log("Query Successful.");
-			res.render('Trends', { 'ArticleData' : result });
+			res.json(result);
 		}
 	);	
 })
+
 app.get('/Events', function(req, res){
-	res.render('Events');
+	res.render('Events', { session: req.session });
 })
 
 // Manager Pages
 app.get('/Manager-Login', function(req, res){
-	res.render('ManagerVerification');
+	res.render('ManagerVerification', { session: req.session });
 })
+app.post('/Manager-Login', (req, res) => {
+    const body = req.body;
+    if( findManager( body.manager_id, body.manager_password ) ) {
+        req.session.manager_uid = "&*!DNdfAsv#!$()_*#*!#EA";
+        res.redirect('/');
+    } else {
+        res.send('Login Failed.');
+    }
+});
+
+app.get('/logout', (req, res) => {
+    delete req.session.manager_uid;
+    res.redirect('/');
+});
+
+
 
 app.get('/ManagerPage', function(req, res){
 	res.render('Events');
