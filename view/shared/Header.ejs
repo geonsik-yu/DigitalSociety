@@ -3,7 +3,7 @@
 	<!-- HEADER START -->
 	<header class="header" id="top">
 		<div style="vertical-align:middle; display:table-cell;">
-			<div id="LogoSpace">
+			<div id="LogoSpace" style="cursor: pointer;" onclick="window.location='/';">
 				<h3 style="font-family:'Oswald';">CENTER FOR <br/>DIGITAL SOCIETY</h3>
 				<img src="./img/YonseiLogo1.jpg" width="30px" style="margin-right:1px">
 				<img src="./img/YonseiLogo2.jpg" width="180px">
@@ -38,16 +38,32 @@
 						<a class="nav-link text-uppercase text-expanded" href="./AboutUs">ABOUT US</a>
 					</li>
 					<li class="nav-item px-md-4 right-deco">
+						<% if(session.manager_uid){ %>
+						<a class="nav-link text-uppercase text-expanded" href="./ManagerExperts">EXPERTS</a>
+						<% } else { %>
 						<a class="nav-link text-uppercase text-expanded" href="./Experts">EXPERTS</a>
+						<% } %>
 					</li>
 					<li class="nav-item px-md-4 right-deco">
+						<% if(session.manager_uid){ %>
+						<a class="nav-link text-uppercase text-expanded" href="./ManagerResearch">RESEARCH</a>
+						<% } else { %>
 						<a class="nav-link text-uppercase text-expanded" href="./Research">RESEARCH</a>
+						<% } %>
 					</li>
 					<li class="nav-item px-md-4 right-deco">
+						<% if(session.manager_uid){ %>
+						<a class="nav-link text-uppercase text-expanded" href="./ManagerTrends">TRENDS</a>
+						<% } else { %>
 						<a class="nav-link text-uppercase text-expanded" href="./Trends">TRENDS</a>
+						<% } %>
 					</li>
 					<li class="nav-item px-md-4">
+						<% if(session.manager_uid){ %>
+						<a class="nav-link text-uppercase text-expanded" href="./ManagerEvents">EVENTS</a>
+						<% } else { %>
 						<a class="nav-link text-uppercase text-expanded" href="./Events">EVENTS</a>
+						<% } %>
 					</li>			
 				</ul>
 			</div>

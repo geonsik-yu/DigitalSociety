@@ -15,6 +15,7 @@
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+	<script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 
 	<!-- Bootstrap Frame CSS and Other Styles -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" >
@@ -35,6 +36,29 @@
 			<div class="col-lg-10 mx-auto text-center">
 				<h1 style="font-family:Oswald">RESEARCH</h1>
 				<hr class="medium">
+
+				<form>
+					<a id="dsafafsd" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Insert New </a>				
+					<div style="text-align:left">
+						Title: <input type="text" id="sm" style="width:100%;">
+					</div>	
+					<div style="text-align:left">
+						Authors: <input type="text" id="sm" style="width:100%;">
+					</div>	
+					<div style="text-align:left">
+						Journal Name: <input type="text" id="sm" style="width:100%;">
+					</div>	
+					<div style="text-align:left">
+						External Link: <input type="text" id="sm" style="width:100%;">
+					</div>	
+
+					<textarea id="researchEditor" rows="10" cols="80">
+					</textarea>
+					<script>
+						CKEDITOR.replace('researchEditor');
+					</script>
+				</form>
+
 				<div id="listBody" class="row" style="margin-bottom:100px"></div>	
 				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>				
 			</div>
@@ -45,20 +69,15 @@
     <% include ./shared/Footer %>
 
 	<script id="ajaxTempl" type="text/x-jquery-tmpl">
-		<div class="col-md-4 col-sm-12">
-			<a href="#">
-				<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; 	padding-top:16px;">
-			</a>
-		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="researchItem"> ${ResearchTitle} </div>
 			<hr class="researchHr"/>
-			<p style="text-align:justify;overflow:hidden">
-				${Description}
-				<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:right;" href="javascript:void(0);" onclick="openModal(this)">
-					View More
-				</a>		
-			</p>
+			<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:left;" href="javascript:void(0);" onclick="openModal(this)">
+					Modify
+			</a>		
+			<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:left;" href="javascript:void(0);" onclick="openModal(this)">
+					Delete
+			</a>		
 		</div>
 		<div id="modal_${ResearchId}" class="modal">
 			<div class="modal-content">	

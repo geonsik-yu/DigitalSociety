@@ -101,6 +101,17 @@ app.post('/Ajax_Trends', function(req, res){
 app.get('/Events', function(req, res){
 	res.render('Events', { session: req.session });
 })
+app.post('/Ajax_Events', function(req, res){
+	current = req.body.current;
+	con.query(
+		"SELECT * FROM Events ORDER BY EventId DESC LIMIT 6 OFFSET " + current, 
+		function (err, result, fields) {
+			if (err) throw err;
+			console.log("Query Successful.");
+			res.json(result);
+		}
+	);	
+})
 
 // Manager Pages
 app.get('/Manager-Login', function(req, res){
@@ -115,16 +126,29 @@ app.post('/Manager-Login', (req, res) => {
         res.send('Login Failed.');
     }
 });
-
 app.get('/logout', (req, res) => {
     delete req.session.manager_uid;
     res.redirect('/');
 });
 
-
-
-app.get('/ManagerPage', function(req, res){
-	res.render('Events');
+app.get('/ManagerExperts', function(req, res){
+	con.query(
+		"SELECT * FROM Experts", 
+		function (err, result, fields) {
+			if (err) throw err;
+			console.log("Query Successful.");
+			res.render('ManagerExperts', { 'ExpertData' : result, session: req.session });
+		}
+	);	
+})
+app.get('/ManagerResearch', function(req, res){
+	res.render('ManagerResearch', { session: req.session });
+})
+app.get('/ManagerTrends', function(req, res){
+	res.render('ManagerTrends', { session: req.session });
+})
+app.get('/ManagerEvents', function(req, res){
+	res.render('ManagerEvents', { session: req.session });
 })
 
 
