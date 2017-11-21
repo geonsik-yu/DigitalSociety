@@ -55,7 +55,9 @@
 					<textarea id="researchEditor" rows="10" cols="80">
 					</textarea>
 					<script>
-						CKEDITOR.replace('researchEditor');
+						CKEDITOR.replace('researchEditor', {
+							filebrowserUploadUrl: '/upload'
+						});
 					</script>
 				</form>
 
