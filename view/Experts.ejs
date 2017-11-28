@@ -30,7 +30,6 @@
 	<!-- ejs Header -->
     <% include ./shared/Header %>
 
-	<!--  -->
 	<section id="experts" class="experts border-top-grey-collapse">
 		<div class="container">
 		<div class="row">
@@ -40,14 +39,14 @@
 				<div class="row" style="margin-bottom:50px">
 					<% 
 					for(i = 0; i < ExpertData.length; i++) { 
-						if(ExpertData[i].ExpertGroup == "Professional"){
+						if(ExpertData[i].ExpertGroup == 1){
 						%>
 					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
 						<div style="word-wrap: break-word">
 							<img style="width:120px;height:120px;float:left"/>
-							<h4> <%=ExpertData[i].ExpertName%> </h4>
-							<p style="margin-left:135px;">
-								<%=ExpertData[i].Description%>
+							<p style="margin-left:145px;">
+								<h5> <%=ExpertData[i].ExpertName%> </h5>
+								<font size="2"><%=ExpertData[i].Description%></font>
 							</p>
 						</div>
 					</div>
@@ -59,54 +58,26 @@
 				<div class="row" style="margin-bottom:50px">
 					<% 
 					for(i = 0; i < ExpertData.length; i++) { 
-						if(ExpertData[i].ExpertGroup == "Researcher"){
+						if(ExpertData[i].ExpertGroup == 2){
 						%>
 					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
 						<div style="word-wrap: break-word">
 							<img style="width:120px;height:120px;float:left"/>
-							<h4> <%=ExpertData[i].ExpertName%> </h4>
-							<p style="margin-left:135px;">
-								<%=ExpertData[i].Description%>
+							<p style="margin-left:145px;">
+								<h5> <%=ExpertData[i].ExpertName%> </h5>
+								<font size="2"><%=ExpertData[i].Description%></font>
 							</p>
 						</div>
 					</div>
 					<% }} %>
 				</div>
-
-			<!-- /.row (nested) -->
 			</div>
-			<!-- /.col-lg-10 -->
 		</div>
-		<!-- /.row -->
 		</div>
-		<!-- /.container -->
 	</section>
 
-
-	<!-- Slogan -->
     <% include ./shared/Slogan %>
-
-	<!-- Call to Action -->
-	<aside class="call-to-action">
-		<div class="container" style="text-align:justify">
-		<div class="row">
-			<div class="col-lg-10 mx-auto">				
-				<div class="row" style="background-color:#007bff;
-										box-shadow: 15px 15px 35px #BBBBBB;
-										padding:40px;">
-				<h5 class="display-none-big text-white">
-					We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
-				</h4>
-				<h6 class="display-none-small text-white">
-					We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
-				</h5>										
-				</div>
-			</div>
-		</div>
-		</div>
-	</aside>
-	
-	<!-- ejs Footer -->
+    <% include ./shared/Recruit %>
     <% include ./shared/Footer %>
 
 	<script>

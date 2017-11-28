@@ -15,7 +15,7 @@
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
-	<script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+	<script src="//cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
 
 	<!-- Bootstrap Frame CSS and Other Styles -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" >
@@ -34,70 +34,112 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
-				<h1 style="font-family:Oswald">RESEARCH</h1>
+				<h1 style="font-family:Oswald">Manager Page: Research</h1>
 				<hr class="medium">
 
-				<form>
-					<a id="dsafafsd" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Insert New </a>				
-					<div style="text-align:left">
-						Title: <input type="text" id="sm" style="width:100%;">
-					</div>	
-					<div style="text-align:left">
-						Authors: <input type="text" id="sm" style="width:100%;">
-					</div>	
-					<div style="text-align:left">
-						Journal Name: <input type="text" id="sm" style="width:100%;">
-					</div>	
-					<div style="text-align:left">
-						External Link: <input type="text" id="sm" style="width:100%;">
-					</div>	
+				<a id="create" class="btn btn-dark text-white modalBtn" style="width:100%;margin-bottom:10px" href="javascript:void(0);" onclick="openModal(this)"> New </a>		
+				<div id="modal_create" class="modal">
+					<div class="modal-content">	
+						<form action="http://localhost:3000/UploadResearch" method="post" enctype="multipart/form-data">
+							<div style="text-align:left">
+								Title: <input name="title" type="text" style="width:100%;">
+							</div>	
+							<div style="text-align:left">
+								Authors: <input name="authors" type="text" style="width:100%;">
+							</div>	
+							<div style="text-align:left">
+								Journal Name: <input name="jname" type="text" style="width:100%;">
+							</div>
+							<div style="text-align:left">
+								External Link: <input name="elink" type="text" style="width:100%;">
+							</div>						
+							<div style="text-align:left">
+								Research Category:
+								<select name="categ" style="width:100%">
+									<option value="1">Interorganizational Networks</option>
+									<option value="2">Citizen/User Community</option>
+									<option value="3">Institutional Ecosystem</option>
+								</select>
+							</div>							
+							<textarea id="researchEditor" name="desc" rows="10" cols="80">
+							</textarea>
+							<script>
+								CKEDITOR.replace('researchEditor');
+							</script>
+							<div style="text-align:left">
+								Image: <input type="file" name="uploadFile" style="width:100%;">
+							</div>													
+							<input class="btn btn-dark text-white" style="width:45%;margin-top:5px;" type="submit" value="Insert">
+							<a id="create" class="btn btn-dark text-white" style="width:45%;margin-top:5px;" href="javascript:void(0);" onclick="closeModal(this)"> Cancel </a>
+						</form>					
+					</div>
+				</div>
 
-					<textarea id="researchEditor" rows="10" cols="80">
-					</textarea>
-					<script>
-						CKEDITOR.replace('researchEditor', {
-							filebrowserUploadUrl: '/upload'
-						});
-					</script>
-				</form>
-
-				<div id="listBody" class="row" style="margin-bottom:100px"></div>	
-				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>				
+				<div id="listBody" class="row">
+				</div>	
+				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>
 			</div>
 		</div>
 		</div>
 	</section>
-    <% include ./shared/Slogan %>
-    <% include ./shared/Footer %>
 
 	<script id="ajaxTempl" type="text/x-jquery-tmpl">
-		<div class="col-md-8 col-sm-12">
-			<div class="researchItem"> ${ResearchTitle} </div>
-			<hr class="researchHr"/>
-			<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:left;" href="javascript:void(0);" onclick="openModal(this)">
-					Modify
-			</a>		
-			<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:left;" href="javascript:void(0);" onclick="openModal(this)">
-					Delete
-			</a>		
+		<div class="col-sm-12">
+			<div style="border-bottom-style:groove;text-align:left;"> 
+				&nbsp;&nbsp;&nbsp;
+				<b>${ResearchTitle}</b> 
+				<a id="${ResearchId}" class="modalBtn" style="float:right;margin-right:10px" href="javascript:void(0);" onclick="openModal(this)">
+						Delete
+				</a>		
+				<a id="${ResearchId}" class="modalBtn" style="float:right;margin-right:10px" href="javascript:void(0);" onclick="openModal(this)">
+						Modify
+				</a>		
+			</div>
 		</div>
+
 		<div id="modal_${ResearchId}" class="modal">
 			<div class="modal-content">	
-				<div style="width:50%;margin:auto;">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
-					</a>
-				</div>
-				<div style="width:100%">
-					<div class="researchItem"> ${ResearchTitle} </div>
-					<hr class="researchHr"/>
-					<p style="text-align:justify;">
-						${Description}
-					</p>
-				</div>
-				<a id="${ResearchId}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
-					Close
-				</a>
+				<form action="http://localhost:3000/UploadResearch" method="post">
+					<div style="text-align:left">
+						Title: <input name="title" type="text" style="width:100%;" value="${ResearchTitle}">
+					</div>	
+					<div style="text-align:left">
+						Authors: <input name="authors" type="text" style="width:100%;" value="${Authors}">
+					</div>	
+					<div style="text-align:left">
+						Journal Name: <input name="jname" type="text" style="width:100%;" value="${JournalName}">
+					</div>
+					<div style="text-align:left">
+						External Link: <input name="elink" type="text" style="width:100%;" value="${ExternalLink}">
+					</div>
+					<div style="text-align:left">
+						Research Category:
+						<select name="categ" style="width:100%">
+						{{if ResearchTag == "1"}}								
+							<option value="1" selected>Interorganizational Networks</option>
+						{{else}}
+							<option value="1">Interorganizational Networks</option>
+						{{/if}}
+						{{if ResearchTag == "2"}}
+							<option value="2" selected>Citizen/User Community</option>
+						{{else}}
+							<option value="2">Citizen/User Community</option>
+						{{/if}}
+						{{if ResearchTag == "3"}}
+							<option value="3" selected>Institutional Ecosystem</option>
+						{{else}}
+							<option value="3">Institutional Ecosystem</option>
+						{{/if}}
+						</select>
+					</div>
+					<textarea id="Editor_${ResearchId}" name="desc" rows="10" cols="80" value="${Description}">
+					</textarea>
+					<div style="text-align:left">
+						Image: <input type="file" name="uploadFile" style="width:100%;">
+					</div>													
+					<input class="btn btn-dark text-white" style="width:45%;margin-top:5px;" type="submit" value="Insert">
+					<a id="${ResearchId}" class="btn btn-dark text-white" style="width:45%;margin-top:5px;" href="javascript:void(0);" onclick="closeModal(this)"> Cancel </a>
+				</form>					
 			</div>
 		</div>
 	</script>
@@ -144,7 +186,7 @@
 				currentIndex += 6;
 				console.log(currentIndex);
 				for(i=0; i<result.length; i++){
-			        var obj = $("#ajaxTempl").tmpl(result[i]).appendTo("#listBody");	
+			        var obj = $("#ajaxTempl").tmpl(result[i]).appendTo("#listBody");	//CKEDITOR.replace('Editor_'+result[i].ResearchId);
 				}
 			});
 		});

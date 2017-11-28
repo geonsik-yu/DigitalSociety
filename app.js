@@ -6,11 +6,13 @@ var express = require('express');
 var app = express();
 var mysql = require('mysql');
 var session = require('express-session');
-var bodyParser = require('body-parser')
+var fs = require('fs');
+var multer = require('multer');
 
 // use body parser for json
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 // use session for login
 app.use(session({
 		secret: 'amv#!&*!DNdfAsv#!$()_*#*!#EA#!@!vsmkv#_*#@',
@@ -46,7 +48,15 @@ con.connect(function(err) {
 app.get('/', function(req, res){
 	//const sess = req.session;
 	//res.render('Home');
-		res.render('Home', { session: req.session });
+	con.query(
+		"SELECT * FROM Research ORDER BY ResearchId DESC LIMIT 3", 
+		function (err, result, fields) {
+			if (err) throw err;
+			console.log("Query Successful.");
+			res.render('Home', { 'ResearchData' : result, session: req.session });
+		}
+	);		
+	//res.render('Home', { session: req.session });
 })
 app.get('/AboutUs', function(req, res){
 	res.render('AboutUs', { session: req.session });
@@ -134,21 +144,77 @@ app.get('/ManagerExperts', function(req, res){
 			res.render('ManagerExperts', { 'ExpertData' : result, session: req.session });
 		}
 	);	
-})
+});
+
 app.get('/ManagerResearch', function(req, res){
 	res.render('ManagerResearch', { session: req.session });
-})
+});
+
+var storage = multer.diskStorage({
+	destination: function (req, file, callback) {
+		callback(null, __dirname+'/public/uploaded_img/');
+	},
+	filename: function (req, file, callback) {
+		callback(null, 'ResearchImg_' + Date.now());
+	}
+});
+
+var upload = multer({ storage : storage }).single('uploadFile');
+//var upload = multer({ dest: __dirname + '/public/uploaded_img/' });
+//app.post('/UploadResearch', upload.single('uploadFile'), function(req, res) {
+app.post('/UploadResearch', upload, function(req, res) {
+	console.log(req.body);
+	console.log(req.file.path);
+	var sql = "INSERT INTO `DigitalSociety`.`Research` (`ResearchTitle`,`Authors`,`JournalName`,`ExternalLink`,`ImageId`,`Description`,`ResearchTag`) VALUES ?"
+	var rqb = req.body;
+	var path = req.file.path.replace(__dirname + "/public/", "")
+	var value = [[rqb.title, rqb.authors, rqb.jname, rqb.elink, path, rqb.desc, rqb.categ]];
+	console.log(value);
+
+	con.query(sql, [value], function (err, result) { if (err) throw err; });
+/*
+{ title: '',
+  authors: '',
+  jname: '',
+  elink: '',
+  categ: '1',
+  desc: '' }
+
+    ['John', 'Highway 71'],
+    ['Peter', 'Lowstreet 4'],
+    ['Amy', 'Apple st 652'],
+    ['Hannah', 'Mountain 21'],
+    ['Michael', 'Valley 345'],
+    ['Sandy', 'Ocean blvd 2'],
+    ['Betty', 'Green Grass 1'],
+    ['Richard', 'Sky st 331'],
+    ['Susan', 'One way 98'],
+    ['Vicky', 'Yellow Garden 2'],
+    ['Ben', 'Park Lane 38'],
+    ['William', 'Central st 954'],
+    ['Chuck', 'Main Road 989'],
+    ['Viola', 'Sideway 1633']
+  ];
+  con.query(sql, [values], function (err, result) {
+    if (err) throw err;
+    console.log("Number of records inserted: " + result.affectedRows);
+  });
+*/
+
+
+	res.redirect('/ManagerResearch');
+});
+
 app.get('/ManagerTrends', function(req, res){
 	res.render('ManagerTrends', { session: req.session });
 })
 app.get('/ManagerEvents', function(req, res){
 	res.render('ManagerEvents', { session: req.session });
 })
-
-
-
-var multer = require('multer');
-var uploadSetting = multer({dest:"../uploads"});
+app.listen(3000, function(){
+	console.log('Connected 3000 port!');
+});
+/*
 router.post('/upload', uploadSetting.single('upload'), function(req,res) {
 	var tmpPath = req.file.path;
 	var fileName = req.file.filename;
@@ -166,9 +232,6 @@ router.post('/upload', uploadSetting.single('upload'), function(req,res) {
 		res.send(html);
 	});
 });
+*/
 
 
-
-app.listen(3000, function(){
-	console.log('Connected 3000 port!');
-});

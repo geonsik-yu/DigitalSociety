@@ -6,9 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
 	<title>Center of Digital Society - TEST</title>
-
 	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -33,7 +31,7 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
-				<h1 style="font-family:Oswald">RESEARCH</h1>
+				<h1 style="font-family:Oswald">PUBLICATIONS</h1>
 				<hr class="medium">
 				<div id="listBody" class="row" style="margin-bottom:100px"></div>	
 				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>				
@@ -47,31 +45,33 @@
 	<script id="ajaxTempl" type="text/x-jquery-tmpl">
 		<div class="col-md-4 col-sm-12">
 			<a href="#">
-				<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; 	padding-top:16px;">
+				<img class="img-portfolio img-fluid" src="${ImageId}" style="width:100%; padding-top:16px;">
 			</a>
 		</div>
 		<div class="col-md-8 col-sm-12">
 			<div class="researchItem"> ${ResearchTitle} </div>
 			<hr class="researchHr"/>
-			<p style="text-align:justify;overflow:hidden">
-				${Description}
-				<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:right;" href="javascript:void(0);" onclick="openModal(this)">
-					View More
-				</a>		
-			</p>
+			<div style="width:100%;text-align:right;"> <b>${Authors}</b> </div>
+			<div class="p_overflow">
+				${Description.replace("<p>","").replace("</p>","")}
+			</div>
+			<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:right;" href="javascript:void(0);" onclick="openModal(this)">
+				View More
+			</a>		
 		</div>
+
 		<div id="modal_${ResearchId}" class="modal">
 			<div class="modal-content">	
 				<div style="width:50%;margin:auto;">
 					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
+					<img class="img-portfolio img-fluid" src="${ImageId}" style="width:100%; padding-top:16px;">
 					</a>
 				</div>
 				<div style="width:100%">
 					<div class="researchItem"> ${ResearchTitle} </div>
 					<hr class="researchHr"/>
 					<p style="text-align:justify;">
-						${Description}
+						${Description.replace("<p>","").replace("</p>","")}
 					</p>
 				</div>
 				<a id="${ResearchId}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">

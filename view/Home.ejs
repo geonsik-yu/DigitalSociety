@@ -53,11 +53,14 @@
 		</div>	
 	</section>
 
-
-
 	<!-- Research Area -->
 	<section id="portfolio" class="portfolio mt50">
 		<div class="container">
+		<div class="display-none-small">
+			<h4 style="font-family:'Oswald';margin-top:-30px;margin-bottom:30px">
+			Our research group aims to present a policy alternative for convergence research and social problem solving in the hyper-connected society.
+			</h4>
+		</div>
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
 				<h2 class="display-none-big" style="font-family:'Oswald';">OUR RESEARCH INTERESTS</h2>
@@ -78,55 +81,22 @@
 				<!-- Research Area 2 -->				
 				<div class="row shadowBox" style="background-color:#fbad54;">
 					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center;"> <strong> User Engagement Platforms</strong> </h3>
+						<h3> <strong>Citizen/User Community</strong> </h3>
 						<p style="text-align:justify;">
-							<img src="/img/Engagement.png" style="width:100px;float:right;padding-left:14px">
-							The research focuses on a platform that controls the interaction between the enterprise and related organizations and the user community in a new corporate environment where consumer participation is expanded. In this platform, the problem of alienation of users who can not participate in collective intelligence occurs and suggests strategic countermeasures of companies that solve it.
+							Community-related research between citizens and users focuses on the phenomenon of multi-faceted overlapping of attributes as consumers and civilizations. The main research scope is to make decisions in collective intelligence society, to combine values of consumer rationality and social public interest, and to search for models to enhance the capability of super intelligent citizens.
 						</p>
-					</div>
+					</div>	
 				</div>
 				
 				<!-- Research Area 3 -->				
 				<div class="row shadowBox mb60px" style="background-color:#e16191;">
 					<div class="col-md-12 col-sm-12">
-						<h3> <strong>Citizen/User Community</strong> </h3>
-						<p style="text-align:justify;">
-							Community-related research between citizens and users focuses on the phenomenon of multi-faceted overlapping of attributes as consumers and civilizations. The main research scope is to make decisions in collective intelligence society, to combine values of consumer rationality and social public interest, and to search for models to enhance the capability of super intelligent citizens.
-						</p>
-					</div>
-				</div>				
-				
-				
-				<!-- Research Area 4 -->
-				<div class="row shadowBox" style="background-color:#49c3b6;">
-					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center"> <strong>Communication Platforms in Civil Society</strong> </h3>
-						<p style="text-align:justify;">
-							<img src="/img/NetworkCitizen.png" style="width:110px;float:right;padding-left:14px">
-							The focus will be on a platform that controls the interaction between institutional ecosystems and citizen user communities. Connectivity and super intelligence have rather polarized society, and the truthfulness and authenticity of information between groups are distorted, and the institutional plan to solve such problems is suggested.
-						</p>
-					</div>	
-				</div>
-				<!-- Research Area 5 -->
-				<div class="row shadowBox" style="background-color:#ced665;">
-					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center"> <strong>Institutional Ecosystem</strong> </h3>					
+						<h3 style="text-align:center"> <strong>Institutional Ecosystem</strong> </h3>
 						<p style="text-align:justify;">
 							Institutional ecology research focuses on problems such as institutional retardation and social friction that can not keep up with the hyperlinked intelligent society. Mutual norms of business and consumers in the connected community; The main research scope is the mediation of social algorithms, social and market fairness, user information protection system.
 						</p>
-					</div>	
+					</div>
 				</div>				
-				<!-- Research Area 6 -->
-				<div class="row shadowBox" style="background-color:#7e9fdd;">
-					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center"> <strong>Governance for Social Trust</strong> </h3>
-						<p style="text-align:justify;">
-							<img src="/img/SocialTrust.png" style="width:130px;float:left;padding-right:14px">
-							The research focuses on the governance system that controls the interactions between corporate networks and institutional ecosystems. This paper proposes a new institutional mechanism to monitor and improve the interconnection network between enterprises and organizations required in the early link intelligence society.
-						</p>
-					</div>	
-				</div>
-				
 				
 			</div>
 		</div>
@@ -145,69 +115,21 @@
 			<hr class="medium">
 			<div class="row">
 
+			<% for(i=0; i<3; i++){%>
 				<!-- research item 1 -->
 				<div class="col-md-4 col-sm-12">
 					<a href="#">
-					<img class="img-portfolio img-fluid" src="/img/portfolio-1.jpg" style="width:100%; padding-top:16px;">
+					<img class="img-portfolio img-fluid" src="<%=ResearchData[i].ImageId%>" style="width:100%; padding-top:16px;">
 					</a>
 				</div>
 				<div class="col-md-8 col-sm-12">
-					<div class="researchItem">TITLE dsfa sdaf zvzcsdf TITLE</div>
+					<div class="researchItem"><%=ResearchData[i].ResearchTitle%></div>
 					<hr class="researchHr"/>
 					<p style="text-align:justify;">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
+						<%=ResearchData[i].Description%>
 					</p>
 				</div>
-				
-				<!-- research item 1 -->
-				<div class="col-md-4 col-sm-12">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="/img/portfolio-2.jpg" style="width:100%; padding-top:16px;">
-					</a>
-				</div>
-				<div class="col-md-8 col-sm-12">
-					<div class="researchItem">TITLE dsfa sdaf zvzcsdf TITLE</div>
-					<hr class="researchHr"/>
-					<p style="text-align:justify;">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-					</p>
-				</div>
-				
-				<!-- research item 1 -->
-				<div class="col-md-4 col-sm-12">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="/img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
-					</a>
-				</div>
-				<div class="col-md-8 col-sm-12">
-					<div class="researchItem">TITLE dsfa sdaf zvzcsdf TITLE</div>
-					<hr class="researchHr"/>
-					<p style="text-align:justify;">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit weruowuer weruiwer weoir.
-					</p>
-				</div>
-				
+			<% } %>
 				
 			</div>
 			<!-- /.row (nested) -->
@@ -224,6 +146,7 @@
     <% include ./shared/Slogan %>
 
 	<!-- Notice -->
+	<!-- 
 	<section id="NewsEvent" class="portfolio">
 		<div class="container">
 		<div class="row">
@@ -252,12 +175,10 @@
 				<a href="#" class="btn btn-dark" style="float:right">View More</a>
 			</div>
 			
-			<!-- /.col-lg-10 -->
 		</div>
-		<!-- /.row -->
 		</div>
-		<!-- /.container -->
 	</section>
+	-->
 
     <% include ./shared/Recruit %>
     <% include ./shared/Footer %>

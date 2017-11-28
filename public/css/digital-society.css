@@ -30,6 +30,19 @@ li.nav-item.right-deco {
 	width: 100% !important;
 }
 
+.p_overflow {
+	text-align:justify;
+	overflow:hidden;
+	line-height: 1.4em;
+	text-overflow: ellipsis; 
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical; 
+	word-wrap:break-word;
+	margin-bottom:2px;
+}
+
+
 #menu-toggle {
 	margin-right: 5px !important;
 	margin-top: 5px !important;

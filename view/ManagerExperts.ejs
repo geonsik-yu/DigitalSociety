@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Center of Digital Society - TEST</title>
+
+	<!-- Bootstrap Core and Other JavaScript Sources -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="js/stylish-portfolio.js"></script>
+
+	<!-- Bootstrap Frame CSS and Other Styles -->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rozha One">
+	<link rel="stylesheet" type="text/css" href="css/stylish-portfolio.css">
+	<link rel="stylesheet" type="text/css" href="css/digital-society.css">	
+</head>
+
+
+<body style="height: 150px;">
+	<!-- ejs Header -->
+    <% include ./shared/Header %>
+
+	<section id="experts" class="experts border-top-grey-collapse">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto text-center">
+				<h1 style="font-family:Oswald">Manager Page: Experts</h1>
+				<!-- insert expert modal -->
+				<a id="create" class="btn btn-dark text-white modalBtn" style="width:100%;margin-bottom:10px" href="javascript:void(0);" onclick="openModal(this)"> New </a>		
+				<div id="modal_create" class="modal">
+					<div class="modal-content">	
+						<form action="http://localhost:3000/UploadExperts" method="post">
+							<div style="text-align:left">
+								Name: <input name="name" type="text" style="width:100%;">
+							</div>		
+							<div style="text-align:left">
+								Description: <input name="name" type="text" style="width:100%;">
+							</div>		
+							<div style="text-align:left">
+								Category:
+								<select name="categ" style="width:100%">
+									<option value="1">Professional</option>
+									<option value="2">Researcher</option>
+								</select>
+							</div>		
+							<div style="text-align:left">
+								Image: <input type="file" name="uploadFile" style="width:100%;">
+							</div>													
+							<input class="btn btn-dark text-white" style="width:45%;margin-top:5px;" type="submit" value="Insert">
+							<a id="create" class="btn btn-dark text-white" style="width:45%;margin-top:5px;" href="javascript:void(0);" onclick="closeModal(this)"> Cancel </a>
+						</form>					
+					</div>
+				</div>
+
+				<h3 style="font-family:Oswald">Manager View: Professionals</h3>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:50px">
+					<% 
+					for(i = 0; i < ExpertData.length; i++) { 
+						if(ExpertData[i].ExpertGroup == 1){
+						%>
+					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
+						<div style="word-wrap: break-word">
+							<img style="width:120px;height:120px;float:left"/>
+							<h4> <%=ExpertData[i].ExpertName%> </h4>
+							<p style="margin-left:135px;text-align:left">
+								<%=ExpertData[i].Description%>
+							</p>
+						</div>
+					</div>
+					<% }} %>
+				</div>
+
+				<h3 style="font-family:Oswald">Manager View: Researchers</h3>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:50px">
+					<% 
+					for(i = 0; i < ExpertData.length; i++) { 
+						if(ExpertData[i].ExpertGroup == 2){
+						%>
+					<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
+						<div style="word-wrap: break-word">
+							<img style="width:120px;height:120px;float:left"/>
+							<h4> <%=ExpertData[i].ExpertName%> </h4>
+							<p style="margin-left:135px;">
+								<%=ExpertData[i].Description%>
+							</p>
+						</div>
+					</div>
+					<% }} %>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("mySidenav_greyover").style.width = "100%";
+		}
+	
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("mySidenav_greyover").style.width = "0";
+		}		
+
+		// JS for modal
+		function openModal(obj){
+			id = $(obj).attr('id');
+			modal = document.getElementById("modal_"+id);
+			modal.style.display = "block";	
+		}
+		function closeModal(obj){
+			id = $(obj).attr('id');
+			modal = document.getElementById("modal_"+id);
+			modal.style.display = "none";	
+		}
+
+	</script>
+</body>
+</html>
