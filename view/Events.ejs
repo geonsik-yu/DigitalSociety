@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Center of Digital Society - TEST</title>
+	<title>Center for Digital Society, Yonsei University</title>
 
 	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
@@ -21,63 +21,14 @@
 	<script src='./fullcalendar-3.7.0/lib/jquery.min.js'></script>
 	<script src='./fullcalendar-3.7.0/fullcalendar.min.js'></script>
 	<script src='./fullcalendar-3.7.0/gcal.min.js'></script>
-	<script>
-		$(document).ready(function() {
-		
-			$('#calendar').fullCalendar({
-
-				header: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'month,listYear'
-				},
-
-				displayEventTime: false, // don't show the time column in list view
-
-				// THIS KEY WON'T WORK IN PRODUCTION!!!
-				// To make your own Google API key, follow the directions here:
-				// http://fullcalendar.io/docs/google_calendar/
-				googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
-			
-				// US Holidays
-				events: 'en.usa#holiday@group.v.calendar.google.com',
-				
-				eventClick: function(event) {
-					// opens events in a popup window
-					window.open(event.url, 'gcalevent', 'width=700,height=600');
-					return false;
-				},
-				
-				loading: function(bool) {
-					$('#loading').toggle(bool);
-				}
-				
-			});
-			
-		});
-	</script>
-<style>
-
-	body {
-		margin: 40px 10px;
-		padding: 0;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		font-size: 14px;
-	}
-		
-	#loading {
-		display: none;
-		position: absolute;
-		top: 10px;
-		right: 10px;
-	}
-
-	#calendar {
-		max-width: 900px;
-		margin: 0 auto;
-	}
-
-</style>
+	<style>
+		body {
+			margin: 40px 10px;
+			padding: 0;
+			font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+			font-size: 14px;
+		}
+	</style>
 	<link rel='stylesheet' type="text/css" href='./fullcalendar-3.7.0/fullcalendar.min.css'>
 	<link rel='stylesheet' media='print' href='./fullcalendar-3.7.0/fullcalendar.print.min.css'>
 	
@@ -101,13 +52,143 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
-				<h1 style="font-family:Oswald">EVENTS</h1>
+				<h1 style="font-family:Oswald">NOTICES & EVENTS</h1>
 				<hr class="medium">
+				<div class="col-sm-12">
+					<div id="4" style="border-bottom-style:groove;text-align:left;font-size:16px;color:black !important;margin-bottom:12px;cursor:pointer" href="javascript:void(0);" onclick="openModal(this)">
+						&nbsp;&nbsp;
+						<b>[Oct 31 2017] &nbsp;&nbsp; 
+						Center Opening Ceremony
+						</b>
+					</div>
+				</div>
+				<div id="modal_4" class="modal">
+					<div class="modal-content">	
+						<div style="width:50%;margin:auto;">
+						</div>
+						<div style="width:100%">
+							<div class="researchItem"> 
+								<b>[Oct 31 2017] &nbsp;&nbsp; 
+								Center Opening Ceremony
+								</b>
+							</div>
+							<hr class="researchHr"/>
+							<p style="text-align:justify;">
+					We will hold the following opening ceremony for the Center for Digital Society of the Communication, Engagement, and Trust in a Hyper-Connected Super-Intelligent Society, which was selected as a major task of the 2017 SSK support project.
+					<br/><br/>
+					- Date and time: 2017. 10. 31 (Tue) 17:30<br/>
+					- Place: Yonsei University Advanced Science and Technology Research Institute (117) No. 102
+							</p>
+							<img class="img-portfolio img-fluid" src="/uploaded_img/event6.png" style="width:100%; padding-top:16px;margin-bottom:20px;">							
+						</div>
+						<a id="4" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
+							Close
+						</a>
+					</div>
+				</div>
 
 
-	<div id='loading'>loading...</div>
 
-	<div id='calendar'></div>
+				<div class="col-sm-12">
+					<div id="3" style="border-bottom-style:groove;text-align:left;font-size:16px;color:black !important;margin-bottom:12px;cursor:pointer" href="javascript:void(0);" onclick="openModal(this)">
+						&nbsp;&nbsp;
+						<b>[Oct 27 2017] &nbsp;&nbsp; 
+						Seven Years of SSK Project: Achievements and Challenges
+						</b>
+					</div>
+				</div>
+				<div id="modal_3" class="modal">
+					<div class="modal-content">	
+						<div style="width:50%;margin:auto;">
+
+						</div>
+						<div style="width:100%">
+							<div class="researchItem">
+								<b>[Oct 27 2017] &nbsp;&nbsp; 
+								Seven Years of SSK Project: Achievements and Challenges
+								</b>
+							</div>
+							<hr class="researchHr"/>
+							<p style="text-align:justify;">
+					the Excellence in Humanities and Social Sciences, Exposition and SSK Networking Support Project's first half performance presentation was held at HIT at Hanyang University under the theme of 'Seven Years of SSK Project: Achievements and Challenges'.
+							</p>
+							<img class="img-portfolio img-fluid" src="/uploaded_img/event5.png" style="width:100%; padding-top:16px;margin-bottom:20px;">
+						</div>
+						<a id="3" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
+							Close
+						</a>
+					</div>
+				</div>
+
+
+				<div class="col-sm-12">
+					<div id="2" style="border-bottom-style:groove;text-align:left;font-size:16px;color:black !important;margin-bottom:12px;cursor:pointer" href="javascript:void(0);" onclick="openModal(this)">
+						&nbsp;&nbsp;
+						<b>[Oct 20 2017] &nbsp;&nbsp; 
+						the 17-18 1st SSK Networking Symposium
+						</b>
+					</div>
+				</div>
+				<div id="modal_2" class="modal">
+					<div class="modal-content">	
+						<div style="width:50%;margin:auto;">
+
+						</div>
+						<div style="width:100%">
+							<div class="researchItem"> 
+								<b>[Oct 20 2017] &nbsp;&nbsp; 
+								the 17-18 1st SSK Networking Symposium
+								</b>
+							</div>
+							<hr class="researchHr"/>
+							<p style="text-align:justify;">
+					The first networking symposium, with 217 participants, consists of a center-based symposium (two sessions, twelve sessions), an agenda-type planning symposium (one session, four sessions), a deepening symposium Research trends (10 sessions of 3 sessions), and hope linkage meetings (1 session).
+					<br/>Seven centers participated in the center-oriented symposium planned for the first time this year.<br/>
+					<br/> &nbsp;&nbsp; • East Asia Co-operative Research Center (Director: Lee Sook-jong)
+					<br/> &nbsp;&nbsp; • Center for Digital Society (Director: Park Sun-ju)
+					<br/> &nbsp;&nbsp; • Warm Educational Community Research Center (Chief researcher: Junggaek Sook)
+					<br/> &nbsp;&nbsp; • SSK Research Center (Research Director: Chungmira)
+					<br/> &nbsp;&nbsp; • Child and Family Research Institute (Director: Do Hyun Sik)
+					<br/> &nbsp;&nbsp; • Center for Government Competitiveness Research (Director: Im Do Bin)
+					<br/> &nbsp;&nbsp; • Hanyang University Peace Research Institute (Director: Choi Jin-woo)
+							</p>
+							<img class="img-portfolio img-fluid" src="/uploaded_img/event2.png" style="width:100%; padding-top:16px;margin-bottom:20px;">
+							<img class="img-portfolio img-fluid" src="/uploaded_img/event3.png" style="width:100%; padding-top:16px;margin-bottom:20px;">
+							<img class="img-portfolio img-fluid" src="/uploaded_img/event4.png" style="width:100%; padding-top:16px;margin-bottom:20px;">
+
+						</div>
+						<a id="2" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
+							Close
+						</a>
+					</div>
+				</div>
+
+
+				<div class="col-sm-12">
+					<div id="1" style="border-bottom-style:groove;text-align:left;font-size:16px;color:black !important;margin-bottom:12px;cursor:pointer" href="javascript:void(0);" onclick="openModal(this)">
+						&nbsp;&nbsp;
+						<b>[Sep 22 2017] &nbsp;&nbsp; 
+						Center for Digital Society Kick-Off Seminar
+						</b>
+					</div>
+				</div>
+				<div id="modal_1" class="modal">
+					<div class="modal-content">	
+						<div style="width:100%">
+							<div class="researchItem"> 
+								<b>[Sep 22 2017] &nbsp;&nbsp; 
+								Center for Digital Society Kick-Off Seminar
+								</b>
+							</div>
+							<hr class="researchHr"/>
+							<p style="text-align:justify;">
+								Venue: Four Points by Sheraton Hotel
+							</p>
+							<img class="img-portfolio img-fluid" src="/uploaded_img/event1.png" style="width:100%; padding-top:16px;margin-bottom:20px;">
+						</div>
+						<a id="1" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)"> Close </a>
+					</div>
+				</div>
 
 			<!-- /.row (nested) -->
 			</div>
@@ -117,6 +198,7 @@
 		</div>
 		<!-- /.container -->
 	</section>
+
 
     <% include ./shared/Slogan %>
     <% include ./shared/Recruit %>
@@ -134,6 +216,17 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 			document.getElementById("mySidenav_greyover").style.width = "0";
+		}
+
+		function openModal(obj){
+			id = $(obj).attr('id');
+			modal = document.getElementById("modal_"+id);
+			modal.style.display = "block";	
+		}
+		function closeModal(obj){
+			id = $(obj).attr('id');
+			modal = document.getElementById("modal_"+id);
+			modal.style.display = "none";	
 		}		
 	</script>
 	

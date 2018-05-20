@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Center of Digital Society - TEST</title>
+	<title>Center for Digital Society, Yonsei University</title>
 
 	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
@@ -15,6 +15,7 @@
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+	<script src="js/papaparse.min.js"></script> 	
 
 	<!-- Bootstrap Frame CSS and Other Styles -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" >
@@ -33,44 +34,10 @@
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto text-center">
-				<h1 style="font-family:Oswald">TRENDS</h1>
+				<h1 style="font-family:Oswald">ARTICLES</h1>
 				<hr class="medium">
 
-
-				<!-- Research Area 4 -->
-				<div class="row shadowBox" style="background-color:#49c3b6;">
-					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center"> <strong>Communication Platforms in Civil Society</strong> </h3>
-						<p style="text-align:justify;">
-							<img src="/img/NetworkCitizen.png" style="width:110px;float:right;padding-left:14px">
-							The focus will be on a platform that controls the interaction between institutional ecosystems and citizen user communities. Connectivity and super intelligence have rather polarized society, and the truthfulness and authenticity of information between groups are distorted, and the institutional plan to solve such problems is suggested.
-						</p>
-					</div>	
-				</div>
-				<!-- Research Area 5 -->
-				<div class="row shadowBox" style="background-color:#ced665;">
-					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center;"> <strong> User Engagement Platforms</strong> </h3>
-						<p style="text-align:justify;">
-							<img src="/img/Engagement.png" style="width:100px;float:right;padding-left:14px">
-							The research focuses on a platform that controls the interaction between the enterprise and related organizations and the user community in a new corporate environment where consumer participation is expanded. In this platform, the problem of alienation of users who can not participate in collective intelligence occurs and suggests strategic countermeasures of companies that solve it.
-						</p>
-					</div>	
-				</div>				
-				<!-- Research Area 6 -->
-				<div class="row shadowBox" style="background-color:#7e9fdd;">
-					<div class="col-md-12 col-sm-12">
-						<h3 style="text-align:center"> <strong>Governance for Social Trust</strong> </h3>
-						<p style="text-align:justify;">
-							<img src="/img/SocialTrust.png" style="width:130px;float:left;padding-right:14px">
-							The research focuses on the governance system that controls the interactions between corporate networks and institutional ecosystems. This paper proposes a new institutional mechanism to monitor and improve the interconnection network between enterprises and organizations required in the early link intelligence society.
-						</p>
-					</div>	
-				</div>
-
-
-
-				<div id="listBody" class="row" style="margin-bottom:100px"></div>	
+				<div id="listBody" class="row" style="margin-bottom:30px"></div>	
 				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>				
 			</div>
 		</div>
@@ -80,40 +47,67 @@
     <% include ./shared/Footer %>
 
 	<script id="ajaxTempl" type="text/x-jquery-tmpl">
+	<div class="row" style="padding:10px;">
 		<div class="col-md-4 col-sm-12">
 			<a href="#">
-				<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; 	padding-top:16px;">
+				<img class="img-portfolio img-fluid" src="${ImageName}" style="width:100%; padding-top:16px;">
 			</a>
 		</div>
 		<div class="col-md-8 col-sm-12">
+			<div style="color:blue;font-weight:bold;float:left;text-align:left;">
+				{{if IsGlobal == 0}}
+					[KOREAN]&nbsp;
+				{{else IsGlobal == 1}}
+					[GLOBAL]&nbsp;
+				{{/if}}
+				{{if Category == 1}}
+					Communication Platforms in Civil Society
+				{{else Category == 2}}
+					User Engagement Platforms
+				{{else Category == 3}}
+					Governance for Social Trust
+				{{/if}}					
+			</div>
+			<br/>
 			<div class="researchItem"> ${ArticleTitle} </div>
 			<hr class="researchHr"/>
-			<p style="text-align:justify;overflow:hidden">
-				${Description}
-				<a id="${ArticleId}" class="btn btn-dark text-white modalBtn" style="float:right;" href="javascript:void(0);" onclick="openModal(this)">
+			<p style="text-align:justify;overflow:hidden;min-height:120px;">
+				${Contents}
+				<a id="${Id}" class="btn btn-dark text-white modalBtn" style="float:right;margin-top:10px;" href="javascript:void(0);" onclick="openModal(this)">
 					View More
 				</a>		
 			</p>
 		</div>
-		<div id="modal_${ArticleId}" class="modal">
+		<div id="modal_${Id}" class="modal">
 			<div class="modal-content">	
-				<div style="width:50%;margin:auto;">
-					<a href="#">
-					<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg" style="width:100%; padding-top:16px;">
-					</a>
-				</div>
 				<div style="width:100%">
 					<div class="researchItem"> ${ArticleTitle} </div>
 					<hr class="researchHr"/>
+					<div class="researchItem" style="font-size:12px;color:blue;font-weight:bold;text-align:right !important">Category:&nbsp;
+					{{if IsGlobal == 0}}
+						[KOREAN]&nbsp;
+					{{else IsGlobal == 1}}
+						[GLOBAL]&nbsp;
+					{{/if}}
+					{{if Category == 1}}
+						Communication Platforms in Civil Society
+					{{else Category == 2}}
+						User Engagement Platforms
+					{{else Category == 3}}
+						Governance for Social Trust
+					{{/if}}					
+					</div>
+					<div class="researchItem" style="font-size:12px;text-align:right !important"> <a href="${ExternalLink}">${ExternalLink}</a> </div>
 					<p style="text-align:justify;">
-						${Description}
+						${Contents}
 					</p>
 				</div>
-				<a id="${ArticleId}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
+				<a id="${Id}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
 					Close
 				</a>
 			</div>
 		</div>
+	</div>
 	</script>
 
 	<script>
@@ -138,25 +132,26 @@
 			modal.style.display = "none";	
 		}
 
-		// Ajax function.
+
 		var currentIndex = 0;
+		var loadingSize = 3;
 		document.querySelector('#loadMore').addEventListener('click', function(){
-			var data = {'current' : currentIndex};
-			jdata = JSON.stringify(data);
-			console.log(jdata);
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:3000/Ajax_Trends');
-			xhr.setRequestHeader('Content-type', "application/json");
-			xhr.send(jdata);
-			// 데이터 수신이 완료되면 표시
-			xhr.addEventListener('load', function(){
-				var result = JSON.parse(xhr.responseText);
-				currentIndex += 6;
-				console.log(currentIndex);
-				for(i=0; i<result.length; i++){
-			        var obj = $("#ajaxTempl").tmpl(result[i]).appendTo("#listBody");	
+			Papa.parse("https://raw.githubusercontent.com/geonsik-yu/CDS_files/master/YonseiCDS/3Trends.csv", {
+				download: true, header: true, dynamicTyping: true,
+				complete: function(results) {
+					console.log(results)
+					papadata = results.data
+					for(i=0; i<papadata.length; i++){
+						if( papadata[i].Id > currentIndex 
+							&& papadata[i].Id <= (currentIndex+loadingSize)){
+							papadata[i].ImageName = "https://raw.githubusercontent.com/geonsik-yu/CDS_files/master/YonseiCDS/Images/"+papadata[i].ImageName
+
+					        var obj = $("#ajaxTempl").tmpl(papadata[i]).appendTo("#listBody");	
+						}
+					}
+					currentIndex += loadingSize;
 				}
-			});
+			})
 		});
 		document.getElementById('loadMore').click();
 	</script>

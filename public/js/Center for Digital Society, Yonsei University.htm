@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://cds.yonsei.ac.kr/Experts -->
+<html lang="en" class="gr__cds_yonsei_ac_kr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Center for Digital Society, Yonsei University</title>
+
+	<!-- Bootstrap Core and Other JavaScript Sources -->
+	<script src="./Center for Digital Society, Yonsei University_files/jquery.min.js"></script>
+	<script src="./Center for Digital Society, Yonsei University_files/bootstrap.bundle.min.js"></script>
+	<script src="./Center for Digital Society, Yonsei University_files/jquery.easing.min.js"></script>
+	<script src="./Center for Digital Society, Yonsei University_files/stylish-portfolio.js"></script>
+	<script src="./Center for Digital Society, Yonsei University_files/papaparse.min.js"></script> 
+	<script>
+		Papa.parse("https://raw.githubusercontent.com/geonsik-yu/geonsik-yu.github.io/master/YonseiCDS/1Experts.csv", {
+			download: true, header: true, dynamicTyping: true,
+			complete: function(results) {
+				console.log(results)
+				papadata = results.data
+				for (i = 0; i < results.data.length; i++) {
+					if(results.data[i].Type == 'Professionals'){
+						document.getElementById('ProfessionalsTable').innerHTML += '<tr class="display-none-big"> \
+								<td style="min-width:160px;">&nbsp;&nbsp;<b>'+ results.data[i].Name+'</b></td> \
+								<td>&nbsp;&nbsp;'+ results.data[i].Descriptions +'</td> \
+							</tr> \
+							<tr class="display-none-small"> \
+								<td><b>'+ results.data[i].Name +'</b></td> \
+							</tr> \
+							<tr class="display-none-small"> \
+								<td>'+results.data[i].Descriptions +'</td> \
+							</tr>'
+					}else{
+						document.getElementById('ResearchersTable').innerHTML += '<tr class="display-none-big"> \
+								<td style="min-width:160px;">&nbsp;&nbsp;<b>'+ results.data[i].Name+'</b></td> \
+								<td>&nbsp;&nbsp;'+ results.data[i].Descriptions +'</td> \
+							</tr> \
+							<tr class="display-none-small"> \
+								<td><b>'+ results.data[i].Name +'</b></td> \
+							</tr> \
+							<tr class="display-none-small"> \
+								<td>'+results.data[i].Descriptions +'</td> \
+							</tr>'
+					}
+				}
+			}
+		})
+	</script>
+	<!-- Bootstrap Frame CSS and Other Styles -->
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/css">
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/css(1)">
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/css(2)">
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/stylish-portfolio.css">
+	<link rel="stylesheet" type="text/css" href="./Center for Digital Society, Yonsei University_files/digital-society.css">	
+</head>
+
+
+<body style="height: 150px;" data-gr-c-s-loaded="true">
+	<!-- ejs Header -->
+    
+
+	<!-- HEADER START -->
+	<header class="header" id="top">
+		<div style="vertical-align:middle; display:table-cell;">
+			<div id="LogoSpace" style="cursor: pointer;" onclick="window.location=&#39;/&#39;;">
+				<h3 style="font-family:&#39;Oswald&#39;;">CENTER FOR <br>DIGITAL SOCIETY</h3>
+				<img src="./Center for Digital Society, Yonsei University_files/YonseiLogo1.jpg" width="30px" style="margin-right:1px">
+				<img src="./Center for Digital Society, Yonsei University_files/YonseiLogo2.jpg" width="180px">
+			</div>
+			
+		</div>
+	</header>
+	
+	<!-- Navigation: Side Drawer -->	
+	<a id="menu-toggle" href="http://cds.yonsei.ac.kr/Experts#" class="btn btn-dark btn-lg toggle" onclick="openNav()">
+		<i class="fa fa-bars"></i>
+	</a>
+	<div id="mySidenav" class="sidenav">
+		<h5 style="font-family:&#39;Oswald&#39;;margin-left:20px;cursor:pointer;" onclick="window.location=&#39;/&#39;;">CENTER FOR <br>DIGITAL SOCIETY</h5>
+		<hr class="mySidenav_hr" style="margin-top:2px; margin-bottom:2px; width:85%">	
+		<a href="http://cds.yonsei.ac.kr/AboutUs">About Us</a>
+		<a href="http://cds.yonsei.ac.kr/Experts">Experts</a>
+		<a href="http://cds.yonsei.ac.kr/Research">Research</a>
+		<a href="http://cds.yonsei.ac.kr/Trends">Trends</a>
+		<a href="http://cds.yonsei.ac.kr/Events">Events</a>
+	</div>
+	<div id="mySidenav_greyover" class="sidenav_greyover closebtn" onclick="closeNav()"></div>
+
+	<!-- Navigation: Horizontal -->
+	<nav id="myHornav" class="navbar navbar-expand-md navbar-light bg-faded py-md-4 border-top-grey-collapse">
+		<div class="container">
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav mx-auto">
+					<li class="nav-item px-md-4 right-deco">
+						<a class="nav-link text-uppercase text-expanded" href="http://cds.yonsei.ac.kr/AboutUs">ABOUT US</a>
+					</li>
+					<li class="nav-item px-md-4 right-deco">
+						
+						<a class="nav-link text-uppercase text-expanded" href="http://cds.yonsei.ac.kr/Experts">EXPERTS</a>
+						
+					</li>
+					<li class="nav-item px-md-4 right-deco">
+						
+						<a class="nav-link text-uppercase text-expanded" href="http://cds.yonsei.ac.kr/Research">RESEARCH</a>
+						
+					</li>
+					<li class="nav-item px-md-4 right-deco">
+						
+						<a class="nav-link text-uppercase text-expanded" href="http://cds.yonsei.ac.kr/Trends">TRENDS</a>
+						
+					</li>
+					<li class="nav-item px-md-4">
+						
+						<a class="nav-link text-uppercase text-expanded" href="http://cds.yonsei.ac.kr/Events">EVENTS</a>
+						
+					</li>			
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- HEADER END -->
+
+
+
+	<!-- Section: Image Slider -->	
+	<section class="imageSlider border-top-grey">
+		<div class="nopadding" style="width:100%;height:0;">
+			<div class="row nopadding">
+				<div class="nopadding">
+					<img class="mySlides" src="./Center for Digital Society, Yonsei University_files/Expert_Sliders1.jpeg" style="max-height: 100%; display: inline;">
+				</div>
+				<div class="nopadding">
+					<img class="mySlides" src="./Center for Digital Society, Yonsei University_files/Expert_Sliders2.jpeg" style="max-height: 100%; display: none;">
+				</div>
+				<!--
+				<div class="nopadding">
+					<img class="mySlides" src="/img/Expert_Sliders3.png" style="max-height:100%;width:auto;overflow:hidden;">
+				</div>
+				-->
+			</div>
+			<div class="dotContainer row">
+				<div class="imageDot" onclick="showDivs(0, 300)" style="background-color: grey;"></div>
+				<div class="imageDot" onclick="showDivs(1, 300)" style="background-color: transparent;"></div>
+				<!-- <div class="imageDot" onclick="showDivs(2, 300)"></div> -->
+			</div>
+		</div>	
+	</section>
+
+	<section id="experts" class="experts border-top-grey-collapse mt50">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto text-center">
+				<h1 style="font-family:Oswald">PROFESSIONALS</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:50px">
+					<div class="col-sm-12">
+						<table style="text-align:left" id="ProfessionalsTable">
+						<tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Park, Sunju</b></td> 								<td>&nbsp;&nbsp;Professor, School of Buisness at Yonsei University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Park, Sunju</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, School of Buisness at Yonsei University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Chung, Seungwha</b></td> 								<td>&nbsp;&nbsp;Professor, School of Buisness at Yonsei University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Chung, Seungwha</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, School of Buisness at Yonsei University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Chung, Yerim</b></td> 								<td>&nbsp;&nbsp;Assistant Professor, School of Buisness at Yonsei University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Chung, Yerim</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Assistant Professor, School of Buisness at Yonsei University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Hwang, Yongsuk</b></td> 								<td>&nbsp;&nbsp;Professor, Department of Media and Communication at Konkuk University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Hwang, Yongsuk</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, Department of Media and Communication at Konkuk University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Shin, Donghee</b></td> 								<td>&nbsp;&nbsp;Professor, School of Media and Communication at Jungang University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Shin, Donghee</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, School of Media and Communication at Jungang University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Choi, Jaewon</b></td> 								<td>&nbsp;&nbsp;Professor, Global Business School at Soonchunhyang University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Choi, Jaewon</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, Global Business School at Soonchunhyang University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Kim, Jaeyoung</b></td> 								<td>&nbsp;&nbsp;Professor, Department of Communication at Chungnam University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Kim, Jaeyoung</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, Department of Communication at Chungnam University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Lee, Jeho</b></td> 								<td>&nbsp;&nbsp;Professor, Business School at Seoul University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Lee, Jeho</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, Business School at Seoul University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Chang, Byenghee</b></td> 								<td>&nbsp;&nbsp;Professor, Department of Journalism and Mass Communication at Sungkyunkwan University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Chang, Byenghee</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, Department of Journalism and Mass Communication at Sungkyunkwan University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Chung, Sungeun</b></td> 								<td>&nbsp;&nbsp;Professor, Department of Journalism and Mass Communication at Sungkyunkwan University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Chung, Sungeun</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Professor, Department of Journalism and Mass Communication at Sungkyunkwan University</td> 							</tr></tbody></table>
+					</div>
+				</div>
+
+				<h1 style="font-family:Oswald">RESEARCHERS</h1>
+				<hr class="medium">
+				<div class="row" style="margin-bottom:50px">
+					<div class="col-sm-12">
+						<table style="text-align:left" id="ResearchersTable">
+		
+						<tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Pyo, Nasung</b></td> 								<td>&nbsp;&nbsp;Post-doctoral Researcher, Yonsei University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Pyo, Nasung</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Post-doctoral Researcher, Yonsei University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Moon, Sungok</b></td> 								<td>&nbsp;&nbsp;Post-doctoral Researcher, Yonsei University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Moon, Sungok</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Post-doctoral Researcher, Yonsei University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Kim, Yangeun</b></td> 								<td>&nbsp;&nbsp;Post-doctoral Researcher, Jungang University</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Kim, Yangeun</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Post-doctoral Researcher, Jungang University</td> 							</tr></tbody><tbody><tr class="display-none-big"> 								<td style="min-width:160px;">&nbsp;&nbsp;<b>Kim, Kitae</b></td> 								<td>&nbsp;&nbsp;Post-doctoral Researcher, Konkuk University Researcher</td> 							</tr> 							<tr class="display-none-small"> 								<td><b>Kim, Kitae</b></td> 							</tr> 							<tr class="display-none-small"> 								<td>Post-doctoral Researcher, Konkuk University Researcher</td> 							</tr></tbody></table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+    
+
+	<aside class="callout">
+		<div class="text-vertical-center">
+		<h1 class="display-none-big text-white" style="font-size: 4.0em;">
+			CONNECTING MARKETS AND SOCIETY
+		</h1>
+		<h2 class="display-none-small text-white">
+			CONNECTING MARKETS AND SOCIETY
+		</h2>										
+		</div>
+	</aside>
+
+    
+
+	<!-- Call to Action -->
+	<aside class="call-to-action">
+		<div class="container" style="text-align:justify">
+		<div class="row">
+			<div class="col-lg-10 mx-auto">				
+				<div class="row" style="background-color:#007bff;
+										box-shadow: 15px 15px 35px #BBBBBB;
+										padding:40px;">
+				<h5 class="display-none-big text-white">
+					We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
+				</h5>
+				<h6 class="display-none-small text-white">
+					We are always interested in hiring highly qualified students. Our team has open positions for students at all levels (BS-MS-PHD). Paid positions and scholarships are available. If you are interested to apply, please email us a copy of your C.V./Resume and transcripts of your last degree. The subject line of your email must say "Applying for Available Positions at CDS".
+				</h6>										
+				</div>
+			</div>
+		</div>
+		</div>
+	</aside>
+
+    
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto text-center">
+			<h4>
+				<strong>Yonsei Center for Digital Society</strong>
+			</h4>
+			<p> 
+				Advanced Science &amp; Technology Center room #102, 50 Yonsei-ro Seodaemun-gu
+				<br>Seoul, 03722, Republic of Korea
+			</p>
+			<ul class="list-unstyled">
+				<li>
+				<i class="fa fa-phone fa-fw"></i>
+				+82 (2) 2123-4654</li>
+				<li>
+				<i class="fa fa-envelope-o fa-fw"></i>
+				<a href="mailto:name@example.com">digital.society@yonsei.ac.kr</a>
+				</li>
+			</ul>
+			<hr class="small">
+			<p class="text-muted">Copyright © Center for Digital Society, Yonsei University 2017</p>
+			</div>
+		</div>
+		</div>
+		<a id="to-top" href="http://cds.yonsei.ac.kr/Experts#top" class="btn btn-dark btn-lg js-scroll-trigger" style="display: block; position: fixed;">
+		<i class="fa fa-chevron-up fa-fw fa-1x"></i>
+		</a>
+	</footer>
+
+
+
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("mySidenav_greyover").style.width = "100%";
+		}
+	
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("mySidenav_greyover").style.width = "0";
+		}
+
+
+		var slideIndex = 0;
+		var interval;
+		var timer = function(){
+			interval = setInterval(function() {
+				slideIndex += 1;
+				slideIndex = slideIndex%2;
+				showDivs(slideIndex, 2000);				
+			}, 10000);
+		}
+
+		$(document).ready(function(){
+			showDivs(slideIndex, 0);
+			timer();
+		});
+		
+		function showDivs(n, time) {
+			slideIndex = n;
+			var i;
+			var x = $(".mySlides");
+			var y = $(".image-top-right")
+			var dots = $(".imageDot");
+
+			x.eq(n).fadeIn(time);
+			y.eq(n).fadeIn(time);
+			for (i = 0; i < x.length; i++) {
+				if (i != n){ 
+					x.eq(i).fadeOut(time);
+					y.eq(i).fadeOut(time);
+					dots.eq(i).css('background-color', 'transparent')
+				}
+			}
+			dots.eq(n).css('background-color', 'grey');
+			clearInterval(interval);
+			timer();
+		}
+	</script>
+	
+	
+
+
+<div class="ginger-module-correctionBubble" style="display: none;"><div class="ginger-module-correctionBubble-container ginger-module-correctionBubble-container-loggedout"><div class="ginger-module-correctionBubble-login">Log in</div><div class="ginger-module-correctionBubble-body">to use Ginger</div></div><div class="ginger-module-correctionBubble-container ginger-module-correctionBubble-container-loggedin"><div class="ginger-module-correctionBubble-limited">Limited mode</div><div class="ginger-module-correctionBubble-body"></div><a href="javascript:" class="ginger-module-correctionBubble-close" title="Ignore mistake">×</a></div></div><div contenteditable="false" id="ginger-floatingG-container" style="position: absolute; top: 0px; left: 0px;"><div class="ginger-floatingG ginger-floatingG-closed" style="display: none;"><div class="ginger-floatingG-disabled-main"><div class="ginger-floatingG-bar-tool-tooltip">Enable Ginger</div></div><div class="ginger-floatingG-offline-main"><div class="ginger-floatingG-bar-tool-tooltip"><em>Cannot connect to Ginger</em> Check your internet connection<br> or reload the browser</div></div><div class="ginger-floatingG-enabled-main"><div class="ginger-floatingG-bar"><div class="ginger-floatingG-bar-tool ginger-floatingG-bar-tool-disable"><a></a><div class="ginger-floatingG-bar-tool-tooltip">Disable in this text field</div></div><div class="ginger-floatingG-bar-tool"><a class="ginger-floatingG-bar-tool-edit">Edit</a><div class="ginger-floatingG-bar-tool-tooltip">Edit in Ginger</div></div><div class="ginger-floatingG-bar-tool ginger-floatingG-bar-tool-mistakes"><a><span class="ginger-floatingG-bar-tool-mistakes-count"></span><svg width="14px" height="14px" viewBox="0 0 66 66" class="ginger-floatingG-loader-spinner"><circle class="ginger-floatingG-loader-spinner-path" fill="none" stroke-width="8.5" stroke-linecap="round" cx="33" cy="33" r="28"></circle></svg></a><div class="ginger-floatingG-bar-tool-tooltip">Edit in Ginger</div></div></div></div></div></div><div class="ginger-extension-writer" style="display: none;"><div class="ginger-extension-writer-frame"><iframe src="./Center for Digital Society, Yonsei University_files/index.html"></iframe></div></div></body><script>(function(){(function() {
+            var e = {};
+            var t = function(e) {
+                for (var t in e) {
+                    if (t.indexOf("__reactInternalInstance") === 0) {
+                        return e[t].memoizedProps || e[t]._currentElement.props;
+                    }
+                }
+                return null;
+            };
+            var r = function(e) {
+                e.defaultPrevented = false;
+                e.target = document.activeElement;
+                e.preventDefault = function() {};
+                return e;
+            };
+            document.addEventListener("gingerModule-hasReactProp", function(e) {
+                console.log(e);
+                var r = e.detail;
+                var i = !!t(r.element);
+                r.cb(i);
+            });
+            document.addEventListener("gingerModule-eventEmitter-react-fire", function(e) {
+                var i = t(document.activeElement);
+                if (e.detail.event) {
+                    var n = e.detail.event;
+                    var o = e.detail.params ? r(e.detail.params) : {};
+                    if (i && n) {
+                        i[n](o);
+                    }
+                } else if (e.detail.prop) {
+                    if (i) {
+                        i[e.detail.prop] = e.detail.value;
+                    }
+                }
+            });
+            document.addEventListener("gingerModule-eventEmitter-onpaste", function(e) {
+                var i = t(document.activeElement);
+                var n = r({
+                    clipboardData: {
+                        getData: function() {
+                            return e.detail || "";
+                        },
+                        items: [ "text/plain" ]
+                    }
+                });
+                if (i) {
+                    i.onPaste(n);
+                }
+            });
+            document.addEventListener("gingerModule-eventEmitter-onkeydown", function(e) {
+                var i = t(document.activeElement);
+                var n = r(e.detail);
+                if (i) {
+                    i.onKeyDown(n);
+                }
+            });
+            var i = function(t, r) {
+                if (!e[t]) return;
+                for (var i = 0; i < e[t].length; i++) {
+                    var n = e[t][i];
+                    n(new CustomEvent(t), r);
+                }
+            };
+            var n = document.addEventListener.bind(document);
+            document.addEventListener = function(t, r, i) {
+                var o = e[t] || [];
+                o.push(r);
+                e[t] = o;
+                n(t, r, i);
+            };
+        })() })()</script></html>

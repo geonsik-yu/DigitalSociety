@@ -6,13 +6,13 @@
 	.display-none-small{ display:none !important; }
 	#myHornav { height: 50px !important; }
 	.mt50 { margin-top: 50% }
-	.mb60px { margin-bottom:60px; }
+	.mb35px { margin-bottom:35px; }
 }
 @media (max-width: 767px){
 	#LogoSpace { margin:auto;width: 80%;}
 	.display-none-big{ display:none !important; }
 	.mt50 { margin-top: 0px }
-	.mb60px { margin-bottom: 0px; }	
+	.mb35px { margin-bottom: 0px; }	
 }
 @media (min-width: 992px){.container { max-width: 1120px !important;}}
 
@@ -37,6 +37,17 @@ li.nav-item.right-deco {
 	text-overflow: ellipsis; 
 	display: -webkit-box;
 	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical; 
+	word-wrap:break-word;
+	margin-bottom:2px;
+}
+.p_overflow_long {
+	text-align:justify;
+	overflow:hidden;
+	line-height: 1.4em;
+	text-overflow: ellipsis; 
+	display: -webkit-box;
+	-webkit-line-clamp: 7;
 	-webkit-box-orient: vertical; 
 	word-wrap:break-word;
 	margin-bottom:2px;
@@ -162,12 +173,12 @@ li.nav-item.right-deco {
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
 	border-radius: 50%;
-	border-color: #ffffff;
+	border-color: grey;
 	border-width: 1px;
 	border-style: solid;
 }
 .imageDot:hover {
-	background-color: white;
+	background-color: grey;
 }
 
 .shadowBox{

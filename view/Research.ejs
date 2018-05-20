@@ -6,13 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Center of Digital Society - TEST</title>
+	<title>Center for Digital Society, Yonsei University</title>
 	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="js/stylish-portfolio.js"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+	<script src="js/papaparse.min.js"></script> 
 
 	<!-- Bootstrap Frame CSS and Other Styles -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" >
@@ -33,8 +34,8 @@
 			<div class="col-lg-10 mx-auto text-center">
 				<h1 style="font-family:Oswald">PUBLICATIONS</h1>
 				<hr class="medium">
-				<div id="listBody" class="row" style="margin-bottom:100px"></div>	
-				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>				
+				<div id="listBody" class="row" style="margin-bottom:30px"></div>	
+				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;" method="post"> Load More </a>		
 			</div>
 		</div>
 		</div>
@@ -43,38 +44,51 @@
     <% include ./shared/Footer %>
 
 	<script id="ajaxTempl" type="text/x-jquery-tmpl">
-		<div class="col-md-4 col-sm-12">
-			<a href="#">
-				<img class="img-portfolio img-fluid" src="${ImageId}" style="width:100%; padding-top:16px;">
-			</a>
-		</div>
-		<div class="col-md-8 col-sm-12">
-			<div class="researchItem"> ${ResearchTitle} </div>
-			<hr class="researchHr"/>
-			<div style="width:100%;text-align:right;"> <b>${Authors}</b> </div>
-			<div class="p_overflow">
-				${Description.replace("<p>","").replace("</p>","")}
+		<div class="row" style="margin-bottom:30px;padding:10px;">
+			<div class="col-md-4 col-sm-12">
+				<a href="#">
+					<img class="img-portfolio img-fluid" src="${ImageName}" style="width:100%; padding-top:16px;">
+				</a>
 			</div>
-			<a id="${ResearchId}" class="btn btn-dark text-white modalBtn" style="float:right;" href="javascript:void(0);" onclick="openModal(this)">
-				View More
-			</a>		
+			<div class="col-md-8 col-sm-12" style="min-height:230px;">
+				<div style="color:blue;font-weight:bold;float:left;text-align:left;">
+					{{if Category == 1}}
+						Interorganizational Networks
+					{{else Category == 2}}
+						Citizen/User Community
+					{{else}}
+						Institutional Ecosystem
+					{{/if}}
+				</div>
+				<br/>
+				<div class="researchItem"> ${Title} </div>
+				<hr class="researchHr"/>
+				<div style="width:100%;text-align:right;"> <b>${Authors}</b> </div>
+				<div class="p_overflow">
+					${Abstract.replace("<p>","").replace("</p>","")}
+				</div>
+				<a id="${Id}" class="btn btn-dark text-white modalBtn" style="float:right;margin-top:10px;" href="javascript:void(0);" onclick="openModal(this)">
+					View More
+				</a>		
+			</div>
 		</div>
-
-		<div id="modal_${ResearchId}" class="modal">
+		<div id="modal_${Id}" class="modal">
 			<div class="modal-content">	
 				<div style="width:50%;margin:auto;">
 					<a href="#">
-					<img class="img-portfolio img-fluid" src="${ImageId}" style="width:100%; padding-top:16px;">
+					<img class="img-portfolio img-fluid" src="${ImageName}" style="width:100%; padding-top:16px;">
 					</a>
 				</div>
 				<div style="width:100%">
-					<div class="researchItem"> ${ResearchTitle} </div>
+					<div class="researchItem"> ${Title} <a href="${ExternalLink}">[link]</a></div>
 					<hr class="researchHr"/>
+					<div class="researchItem" style="text-align:right !important"> ${Authors} </div>
+					<div class="researchItem" style="text-align:right !important"> ${JournalTitle} </div>
 					<p style="text-align:justify;">
-						${Description.replace("<p>","").replace("</p>","")}
+						${Abstract.replace("<p>","").replace("</p>","")}
 					</p>
 				</div>
-				<a id="${ResearchId}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
+				<a id="${Id}" class="btn btn-dark text-white" style="width:60px;margin:auto;" href="javascript:void(0);" onclick="closeModal(this)">
 					Close
 				</a>
 			</div>
@@ -102,33 +116,29 @@
 			modal = document.getElementById("modal_"+id);
 			modal.style.display = "none";	
 		}
-		function dataObj(object1, object2){
-			this.object1=object1;
-			this.object2=object2;
-		}
 
 		// Ajax function.
 		var currentIndex = 0;
+		var loadingSize = 3;
 		document.querySelector('#loadMore').addEventListener('click', function(){
-			var data = {'current' : currentIndex};
-			jdata = JSON.stringify(data);
-			console.log(jdata);
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:3000/Ajax_Research');
-			xhr.setRequestHeader('Content-type', "application/json");
-			xhr.send(jdata);
-			// 데이터 수신이 완료되면 표시
-			xhr.addEventListener('load', function(){
-				var result = JSON.parse(xhr.responseText);
-				currentIndex += 6;
-				console.log(currentIndex);
-				for(i=0; i<result.length; i++){
-			        var obj = $("#ajaxTempl").tmpl(result[i]).appendTo("#listBody");	
+			Papa.parse("https://raw.githubusercontent.com/geonsik-yu/CDS_files/master/YonseiCDS/2Research.csv", {
+				download: true, header: true, dynamicTyping: true,
+				complete: function(results) {
+					console.log(results)
+					papadata = results.data
+					for(i=0; i<papadata.length; i++){
+						if( papadata[i].Id > currentIndex 
+							&& papadata[i].Id <= (currentIndex+loadingSize)){
+							papadata[i].ImageName = "https://raw.githubusercontent.com/geonsik-yu/CDS_files/master/YonseiCDS/Images/"+papadata[i].ImageName
+					        var obj = $("#ajaxTempl").tmpl(papadata[i]).appendTo("#listBody");	
+						}
+					}
+					currentIndex += loadingSize;
 				}
-			});
+			})
 		});
 		document.getElementById('loadMore').click();
 	</script>
-	</body>
 
+	</body>
 </html>

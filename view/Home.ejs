@@ -5,14 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Geonsik Yu">
-	<title>Center of Digital Society - TEST</title>
+	<title>Center for Digital Society, Yonsei University</title>
 
 	<!-- Bootstrap Core and Other JavaScript Sources -->
 	<script src="/vendor/jquery/jquery.min.js"></script>
 	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script src="/js/stylish-portfolio.js"></script>
-	
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"></script>
+
 	<!-- Bootstrap Frame CSS and Other Styles -->
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css" >
 	<link rel="stylesheet" type="text/css" href="/vendor/font-awesome/css/font-awesome.min.css">
@@ -33,16 +34,16 @@
 		<div class="nopadding" style="width:100%;height:0;">
 			<div class="row nopadding">
 				<div class="nopadding">
+					<img class="mySlides" src="/img/Sliders5.png">
+					<div class="image-top-right" Style="color:black;"><b>Network Analyisis and Visualization</b></div>
+				</div>
+				<div class="nopadding">
+					<img class="mySlides" src="/img/Sliders4.png">
+					<div class="image-top-right" Style="color:black;"><b>Business Strategy Simulations</b></div>
+				</div>
+				<div class="nopadding">
 					<img class="mySlides" src="/img/Sliders1.jpeg">
-					<div class="image-top-right">Description WERGAEW ER</div>
-				</div>
-				<div class="nopadding">
-					<img class="mySlides" src="/img/Sliders2.jpeg">
-					<div class="image-top-right">Description WERGAEW ER</div>
-				</div>
-				<div class="nopadding">
-					<img class="mySlides" src="/img/Sliders3.jpeg">
-					<div class="image-top-right">Description WERGAEW ER</div>
+					<div class="image-top-right"></div>
 				</div>
 			</div>
 			<div class="dotContainer row">
@@ -89,7 +90,7 @@
 				</div>
 				
 				<!-- Research Area 3 -->				
-				<div class="row shadowBox mb60px" style="background-color:#e16191;">
+				<div class="row shadowBox mb35px" style="background-color:#ffcbb9;">
 					<div class="col-md-12 col-sm-12">
 						<h3 style="text-align:center"> <strong>Institutional Ecosystem</strong> </h3>
 						<p style="text-align:justify;">
@@ -107,15 +108,14 @@
 
 
 	<!-- Portfolio -->
-	<section id="portfolio" class="portfolio">
+	<section id="portfolio" class="portfolio" style="padding-top:25px !important;">
 		<div class="container">
 		<div class="row">
 			<div class="col-lg-10 mx-auto">
 			<h2 style="font-family:'Oswald';text-align:center;">LATEST RESEARCH</h2>
 			<hr class="medium">
-			<div class="row">
-
 			<% for(i=0; i<3; i++){%>
+			<div class="row" style="margin-bottom:30px;">
 				<!-- research item 1 -->
 				<div class="col-md-4 col-sm-12">
 					<a href="#">
@@ -123,17 +123,24 @@
 					</a>
 				</div>
 				<div class="col-md-8 col-sm-12">
+					<% if (ResearchData[i].ResearchTag == 1) {%>
+					<div style="color:blue;font-weight:bold;">Interorganizational Networks</div>
+					<%} else if (ResearchData[i].ResearchTag == 2) {%>
+					<div style="color:blue;font-weight:bold;">Citizen/User Community</div>
+					<%} else {%>
+					<div style="color:blue;font-weight:bold;">Institutional Ecosystem</div>
+					<%}%>
 					<div class="researchItem"><%=ResearchData[i].ResearchTitle%></div>
 					<hr class="researchHr"/>
-					<p style="text-align:justify;">
+					<p class="p_overflow_long" style="text-align:justify;">
 						<%=ResearchData[i].Description%>
 					</p>
 				</div>
-			<% } %>
-				
 			</div>
+			<% } %>				
+
 			<!-- /.row (nested) -->
-			<a href="#" class="btn btn-dark" style="float:right;">View More</a>
+			<a href="http://cds.cafe24app.com/Research" class="btn btn-dark" style="float:right;">View More</a>
 			</div>
 			<!-- /.col-lg-10 -->
 		</div>
@@ -144,6 +151,51 @@
 
 	<!-- Slogan -->
     <% include ./shared/Slogan %>
+
+	<!-- Research Area -->
+	<section id="portfolio" class="portfolio" style="padding-top:75px !important;">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto text-center">
+				<h2 style="font-family:'Oswald';">POLICY INTERESTS</h2>
+				<hr class="medium display-none-big" style="margin-bottom:25px">
+				<!-- Research Area 4 -->
+				<div class="row shadowBox" style="background-color:#49c3b6;">
+					<div class="col-md-12 col-sm-12">
+						<h3 style="text-align:center"> <strong>Communication Platforms in Civil Society</strong> </h3>
+						<p style="text-align:justify;">
+							<img src="/img/NetworkCitizen.png" style="width:110px;float:right;padding-left:14px">
+							The focus will be on a platform that controls the interaction between institutional ecosystems and citizen user communities. Connectivity and super intelligence have rather polarized society, and the truthfulness and authenticity of information between groups are distorted, and the institutional plan to solve such problems is suggested.
+						</p>
+					</div>	
+				</div>
+				<!-- Research Area 5 -->
+				<div class="row shadowBox" style="background-color:#ced665;">
+					<div class="col-md-12 col-sm-12">
+						<h3 style="text-align:center;"> <strong> User Engagement Platforms</strong> </h3>
+						<p style="text-align:justify;">
+							<img src="/img/Engagement.png" style="width:100px;float:right;padding-left:14px">
+							The research focuses on a platform that controls the interaction between the enterprise and related organizations and the user community in a new corporate environment where consumer participation is expanded. In this platform, the problem of alienation of users who can not participate in collective intelligence occurs and suggests strategic countermeasures of companies that solve it.
+						</p>
+					</div>	
+				</div>				
+				<!-- Research Area 6 -->
+				<div class="row shadowBox" style="background-color:#7e9fdd;">
+					<div class="col-md-12 col-sm-12">
+						<h3 style="text-align:center"> <strong>Governance for Social Trust</strong> </h3>
+						<p style="text-align:justify;">
+							<img src="/img/SocialTrust.png" style="width:130px;float:left;padding-right:14px">
+							The research focuses on the governance system that controls the interactions between corporate networks and institutional ecosystems. This paper proposes a new institutional mechanism to monitor and improve the interconnection network between enterprises and organizations required in the early link intelligence society.
+						</p>
+					</div>	
+				</div>
+				
+			</div>
+		</div>
+		<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
 
 	<!-- Notice -->
 	<!-- 
@@ -179,45 +231,122 @@
 		</div>
 	</section>
 	-->
+	<section id="portfolio" class="portfolio" style="padding-top:65px !important; padding-bottom:0px !important;">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-auto text-center">
+				<h2 style="font-family:'Oswald';text-align:center;">RECENT TRENDS</h2>
+				<hr class="medium">	
 
+				<div id="listBody" style="margin-bottom:100px"></div>	
+				<a id="loadMore" class="btn btn-dark text-white" style="width:100%;margin-top:30px;display:none;" method="post"> Load More </a>	
+				<a href="./Trends" class="btn btn-dark" style="float:right;margin-top:-70px;">View More</a>
+
+			</div>
+		</div>
+		</div>
+	</section>
     <% include ./shared/Recruit %>
     <% include ./shared/Footer %>
+
+	<script id="ajaxTempl" type="text/x-jquery-tmpl">
+		<div class="row" style="margin-bottom:30px;">
+			<div class="col-md-4 col-sm-12">
+				<a href="#">
+					<img class="img-portfolio img-fluid" src="${ImageId}" style="width:100%; padding-top:16px;">
+				</a>
+			</div>
+			<div class="col-md-8 col-sm-12">
+				<div style="color:blue;font-weight:bold;float:left;"> 
+					{{if ArticleTag == 11}}
+						[KOREAN] Communication Platforms in Civil Society
+					{{else ArticleTag == 12}}
+						[GLOBAL] Communication Platforms in Civil Society
+					{{else ArticleTag == 21}}
+						[KOREAN] User Engagement Platforms
+					{{else ArticleTag == 22}}
+						[GLOBAL] User Engagement Platforms
+					{{else ArticleTag == 31}}
+						[KOREAN] Governance for Social Trust
+					{{else}}
+						[GLOBAL] Governance for Social Trust
+					{{/if}}					
+				</div>
+				<br/>
+				<div class="researchItem"> ${ArticleTitle} </div>
+				<hr class="researchHr"/>
+				<p class="p_overflow_long" style="text-align:justify;overflow:hidden">
+					${Description}
+				</p>
+			</div>
+		</div>
+	</script>
 	
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "220px";
 			document.getElementById("mySidenav_greyover").style.width = "100%";
 		}
-	
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 			document.getElementById("mySidenav_greyover").style.width = "0";
 		}
 
 		var slideIndex = 0;
-		$(document).ready(function(){
-			showDivs(slideIndex, 0);
-			setInterval(function() {
+		var interval;
+		var timer = function(){
+			interval = setInterval(function() {
 				slideIndex += 1;
 				slideIndex = slideIndex%3;
 				showDivs(slideIndex, 2000);				
-			}, 10000);
+			}, 40000);
+		}
+
+		$(document).ready(function(){
+			showDivs(slideIndex, 0);
+			timer();
 		});
 		
 		function showDivs(n, time) {
+			slideIndex = n;
 			var i;
 			var x = $(".mySlides");
+			var y = $(".image-top-right")
 			var dots = $(".imageDot");
 
 			x.eq(n).fadeIn(time);
+			y.eq(n).fadeIn(time);
 			for (i = 0; i < x.length; i++) {
 				if (i != n){ 
 					x.eq(i).fadeOut(time);
+					y.eq(i).fadeOut(time);
 					dots.eq(i).css('background-color', 'transparent')
 				}
 			}
-			dots.eq(n).css('background-color', 'white');
+			dots.eq(n).css('background-color', 'grey');
+			clearInterval(interval);
+			timer();
 		}
+
+		document.querySelector('#loadMore').addEventListener('click', function(){
+			var data = {'current' : 0};
+			jdata = JSON.stringify(data);
+			console.log(jdata);
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', './Ajax_Trends');
+			xhr.setRequestHeader('Content-type', "application/json");
+			xhr.send(jdata);
+			// 데이터 수신이 완료되면 표시
+			xhr.addEventListener('load', function(){
+				var result = JSON.parse(xhr.responseText);
+				for(i=0; i<3; i++){
+			        var obj = $("#ajaxTempl").tmpl(result[i]).appendTo("#listBody");	
+				}
+			});
+		});
+		document.getElementById('loadMore').click();
+
+
 	</script>
 	</body>
 
